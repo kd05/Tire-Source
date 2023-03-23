@@ -1,0 +1,460 @@
+// ************************************************
+//               import stuff
+// ************************************************
+
+.product-import-response{
+    .product-import-status{
+        display: block;
+        .response-text();
+        &.empty{
+            display: none;
+        }
+    }
+    .product-import-updates{
+        display: block;
+        &.empty{
+            display: none;
+        }
+        .update{
+            padding: 25px;
+            margin: 20px 0;
+            background: white;
+            .box-shadow-1();
+        }
+    }
+}
+
+body.not--blog.is-admin{
+    input[name="meta_title"]{
+        width: 100%;
+        max-width: 500px;
+    }
+    input[name="meta_desc"]{
+        width: 100%;
+        max-width: 1200px;
+    }
+}
+
+// ************************************************
+//              some general stuff
+// ************************************************
+
+// sidebar nav?
+#admin-nav{
+    li{
+        margin-bottom: 4px;
+        font-weight: 700;
+        a{
+            &:hover{
+                color: @red;
+            }
+        }
+    }
+}
+
+.admin-section{
+    .item-sub_sizes{
+        textarea{
+            .font(15px, 9px);
+            font-family: monospace !important;
+            min-height: 300px !important;
+        }
+    }
+}
+
+body.is-admin{
+    .general-content{
+        p, li{
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+        }
+    }
+}
+
+.response-text(){
+    margin: 15px 0;
+    background: @textGrey;
+    padding: 15px;
+    color: white;
+    .font(14px, 4px);
+    font-weight: 700;
+    *{
+        color: white;
+        .font(14px, 4px);
+        font-weight: 700;
+    }
+}
+
+body.is-admin{
+    .response-text.response-text.response-text.response-text{
+        .response-text();
+    }
+}
+
+// ************************************************
+//     Check All / Delete on product pages
+// ************************************************
+body.is-admin{
+    form{
+        .form-table-controls{
+            .flex-left( center );
+            > *{
+                margin-right: 20px;
+                margin-bottom: 20px;
+            }
+            button[type="submit"]{
+            }
+        }
+    }
+}
+
+// ************************************************
+//    Admin sticky footer with sidebar layout
+// ************************************************
+body.is-admin{
+    .flex-container(column);
+    .justify-content(flex-start);
+    min-height: 100vh;
+    .site-header{
+        width: 100%;
+    }
+    .site-main{
+        width: 100%;
+        .flex(1 0 auto);
+        .flex-container(); // child height 100%
+        .admin-sidebar-page{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+    }
+    .site-footer{
+        width: 100%;
+    }
+    .ajax-response{
+        background: white;
+        padding: 16px 21px;
+        border-left: 4px solid @red;
+        margin: 20px 0;
+        .box-shadow-1();
+        &.empty{
+            display: none !important;
+        }
+        &.not-empty{
+            display: block;
+        }
+        > *{
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// ************************************************
+//           Sidebar Layout styles
+// ************************************************
+.admin-sidebar-page{
+    width: 100%;
+    max-width: 2560px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    .flex-container(row, wrap);
+    .align-items(stretch);
+    .justify-content(flex-start);
+    .sb-left{
+        padding: 34px 25px;
+        width: 240px;
+        background: @offWhite;
+        background: darken( @offWhite, 5% );
+        ul, li{
+            list-style: none;
+        }
+        @media screen and (max-width: 640px){
+            width: 100%;
+        }
+    }
+    .sb-right{
+        .width-100-minus( 240px );
+        padding: 50px;
+        // lots of tables overflow
+        overflow-x: auto;
+        @media screen and (max-width: 1360px){
+            padding: 50px 30px;
+        }
+        @media screen and (max-width: 640px){
+            width: 100%;
+        }
+        @media screen and (max-width: 430px){
+            padding: 45px 18px;
+        }
+        .admin-page-title{
+            margin-bottom: 50px;
+            h1{
+
+            }
+
+        }
+    }
+}
+
+.csv-controls{
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+// ************************************************
+//        Form Style Basic (admin stuff maybe)
+// ************************************************
+
+.form-style-basic{
+
+    .form-items.inline{
+        .flex-left(flex-start, wrap);
+
+        select{
+            min-width: 175px;
+            font-size: 13px;
+            line-height: 18px;
+            padding: 4px 8px;
+        }
+
+        .item-wrap{
+            padding: 0;
+            margin: 0 15px 15px 0;
+        }
+    }
+
+    .response-text{
+        &.empty{
+            display: none !important;
+        }
+    }
+    .form-header{
+        margin-bottom: 10px;
+    }
+    .item-wrap{
+        margin-bottom: 15px;
+        // textarea
+        &.type-textarea{
+            width: 100%;
+            .item-inner{
+                width: 100%;
+            }
+            textarea{
+                width: 100%;
+                min-height: 350px;
+            }
+        }
+    }
+    .item-label{
+        margin-bottom: 5px;
+    }
+    .item-wrap.type-checkbox, .item-wrap.type-radio{
+        display: block;
+        .item-inner{
+            padding-top: 4px;
+            .flex-left(center);
+            label{
+                padding-left: 10px;
+            }
+        }
+    }
+    .response-text{
+        .response-text();
+    }
+    label{
+        .font(13px, 4px);
+        font-weight: 700;
+    }
+    input, select, textarea{
+        min-width: 250px;
+        @media screen and (max-width: 640px){
+            min-width: 0;
+        }
+        padding: 8px;
+        &[type="checkbox"], &[type="radio"]{
+            min-width: 0;
+            padding: 0;
+        }
+    }
+    input[type="file"]{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// ************************************************
+//               Admin Table
+//       see also: table-style-1.less
+// ************************************************
+
+body.admin-tables-overflow-visible{
+    .admin-sidebar-page .sb-right{
+        overflow: visible;
+    }
+    .table-wrap.table-style-1.admin-table{
+        overflow: visible;
+        table{
+            max-height: none;
+            overflow: visible;
+        }
+    }
+}
+
+.table-wrap.table-style-1{
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 50px;
+    .table-title{
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        .font(16px, 4px);
+        font-weight: 600;
+    }
+    &.admin-table{
+        overflow: visible;
+        table{
+            display: block;
+            max-height: 76vh;
+            overflow: auto;
+            .cell-delete{
+                input[type="checkbox"]{
+                    cursor: pointer;
+                    &:hover{
+
+                    }
+                }
+            }
+
+            th, td{
+                font-weight: 600;
+                padding: 7px 5px;
+                text-align: left;
+                color: @textGrey;
+                border: 1px solid darken(@offWhite, 10%);
+                .font(12px, 4px);
+                text-transform: none;
+                input{
+                    .montserrat();
+                    width: 75px;
+                    padding: 3px;
+                    margin: 8px;
+                    &.width-md{
+                        width: 120px;
+                    }
+                    &.width-lg{
+                        width: 150px;
+                    }
+                }
+            }
+            th{
+                background: @textGrey;
+                color: white;
+            }
+        }
+    }
+}
+
+// ************************************************
+//               Admin Section
+// ************************************************
+.admin-section{
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid darken( @offWhite, 7% );
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.admin-section .form-controls{
+    .flex-left();
+    margin-left: -10px;
+    .control-wrap{
+        padding: 10px;
+    }
+}
+
+.admin-links.admin-links{
+    p{
+        padding: 0;
+        margin: 5px 0;
+        .font(14px, 4px);
+        color: @textBlack;
+        a{
+            color: inherit;
+            text-decoration: underline;
+            &:hover{
+                color: @red;
+            }
+        }
+    }
+}
+
+
+.sb-right.admin-content{
+    a{
+        text-decoration: underline;
+    }
+    button a{
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+// ************************************************
+//               Admin Archive Page
+// ************************************************
+.admin-archive-page-controls{
+    .flex-left(center);
+    padding: 15px 0;
+    > *{
+        margin-right: 25px;
+    }
+}
+
+
+// ************************************************
+//                Admin Things
+// ************************************************
+
+.pagination-type-1{
+    .flex-left( center );
+    .page-btn{
+        display: block;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        padding: 5px 6px;
+        *{
+            color: @textBlack;
+            font-weight: 700;
+            .font(14px, 3px);
+        }
+        &.is-current, &:hover{
+            background: @textBlack;
+            *{
+                color: white;
+            }
+        }
+        &.page-next, &.page-prev{
+            display: none !important;
+        }
+        &.page-first, &.page-last{
+
+        }
+        &.page-dots{
+
+        }
+        .btn-inner{
+            display: block;
+        }
+    }
+}

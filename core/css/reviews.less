@@ -1,0 +1,455 @@
+// ************************************************
+//    Product Reviews General (contains 3 sub-sections)
+// ************************************************
+.product-reviews{
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    > h2{
+        margin-bottom: 18px;
+    }
+}
+
+// ************************************************
+//           Product Reviews List
+// ************************************************
+
+.product-reviews-list{
+    margin-top: 62px;
+    width: 100%;
+    @media screen and (max-width: 1440px){
+        margin-top: 52px;
+    }
+    .pr-more{
+        padding-top: 45px;
+        .flex-right();
+        .pr-more-trigger{
+            color: @red;
+            .font(14px, 4px);
+            text-transform: uppercase;
+            font-weight: 700;
+            .letter-spacing-large();
+        }
+        @media screen and (max-width: 1440px){
+            padding-top: 40px;
+        }
+    }
+    .pr-flex{
+        width: 100%;
+        margin-bottom: -62px;
+        @media screen and (max-width: 1440px){
+            margin-bottom: -52px;
+        }
+        .pr-item{
+            width: 100%;
+            margin-bottom: 62px;
+            // javascript may reveal.
+            @media screen and (max-width: 1440px){
+                margin-bottom: 52px;
+            }
+            &.hidden{
+                display: none;
+            }
+            .pr-item-2{
+                .item-top{
+                    .flex-left(center, wrap);
+                    margin-bottom: 18px;
+                    .nickname{
+                        margin: 0;
+                        padding: 0;
+                        margin-right: 18px;
+                        .font(22px, 4px);
+                        color: @offBlack;
+                        font-weight: 600;
+                        .letter-spacing-small();
+                    }
+                    .rating{
+                        .flex-left(center);
+                        .rating-stars{
+                            .flex-left(center);
+                            // solid
+                            > i{
+                                display: block;
+                                margin-right: 8px;
+                            }
+                            .fas.fa-star{
+                                color: @red;
+                            }
+                            // half
+                            .fa.fa-star-half-alt{
+                                color: @red;
+                            }
+                            // empty
+                            .far.fa-star{
+                                color: @ratings_grey;
+                            }
+                        }
+                        > p{
+                            margin: 0;
+                            padding: 0;
+                            .font(16px, 4px);
+                            .letter-spacing-small();
+                            color: @offBlack;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//              Ratings Histogram
+// ************************************************
+
+.ratings-text-lower(){
+    .font(15px, 3px);
+    .letter-spacing-medium();
+    font-weight: 600;
+    color: @textGrey;
+    @media screen and (max-width: 640px){
+        .font(13px, 3px);
+    }
+    @media screen and (max-width: 430px){
+        .font(12px, 3px);
+    }
+}
+
+.ratings-text-upper(){
+    .font(15px, 3px);
+    .letter-spacing-medium();
+    font-weight: 600;
+    text-transform: uppercase;
+    color: @textGrey;
+    @media screen and (max-width: 640px){
+        .font(13px, 3px);
+    }
+    @media screen and (max-width: 430px){
+        .font(12px, 3px);
+    }
+}
+
+.ratings-histogram{
+    width: 100%;
+    padding-right: 46px;
+    .leave-a-review{
+        .flex-right();
+        a{
+            color: @red;
+            font-weight: 700;
+            .font(14px, 4px);
+            @media screen and (max-width: 640px){
+                .font(13px, 4px);
+            }
+            @media screen and (max-width: 430px){
+                .font(12px, 4px);
+            }
+        }
+    }
+    @media screen and (max-width: 900px){
+        padding-right: 30px;
+    }
+    @media screen and (max-width: 500px){
+        padding-right: 20px;
+    }
+    .rh-row{
+        position: relative;
+        width: 100%;
+        .flex-left(center);
+        margin-bottom: 9px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        span{
+            display: block;
+            .ratings-text-upper();
+        }
+        .rh-left{
+            min-width: 80px;
+            padding-right: 15px;
+            text-align: right;
+            span{
+                white-space: nowrap;
+            }
+            @media screen and (max-width: 640px){
+                min-width: 70px;
+                padding-right: 12px;
+            }
+            @media screen and (max-width: 500px){
+                min-width: 65px;
+                padding-right: 10px;
+            }
+        }
+        .rh-mid{
+            .width-100-minus(80px);
+            @media screen and (max-width: 640px){
+                .width-100-minus(70px);
+            }
+            @media screen and (max-width: 500px){
+                .width-100-minus(65px);
+            }
+            .rh-bar{
+                position: relative;
+                height: 17px;
+                border: 1px solid @ratings_grey;
+                &.count-0{
+                    .rh-bar-red{
+                        display: none !important;
+                    }
+                }
+                .rh-bar-red{
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 0; // inline style
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        top: -1px;
+                        left: -1px;
+                        bottom: -1px;
+                        right: -1px;
+                        background: @red;
+                    }
+                }
+            }
+        }
+        .rh-right{
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            height: 0;
+            margin-left: 23px;
+            @media screen and (max-width: 500px){
+                margin-left: 16px;
+            }
+            > span{
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                .translate(-50%, -50%);
+                line-height: 1em;
+            }
+        }
+    }
+}
+
+// ************************************************
+//               Ratings Aggregate
+// ************************************************
+
+@ratings_grey: darken(@offWhite, 12%);
+.ratings-aggregate{
+    margin-bottom: 23px;
+    .flex-left(center);
+    @media screen and (max-width: 500px){
+        .flex-left(center, wrap);
+    }
+    .stars{
+        margin-right: 18px;
+        .flex-left(center);
+        @media screen and (max-width: 640px){
+            margin-right: 10px;
+        }
+        @media screen and (max-width: 500px){
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        // solid
+        > i{
+            font-size: 16px;
+            display: block;
+            margin-right: 10px;
+            &:last-child{
+                margin-right: 0;
+            }
+            @media screen and (max-width: 640px){
+                font-size: 14px;
+                margin-right: 7px;
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+        }
+        .fas.fa-star{
+            color: @red;
+        }
+        // half
+        .fa.fa-star-half-alt{
+            color: @red;
+        }
+        // empty
+        .far.fa-star{
+            color: @ratings_grey;
+        }
+    }
+    .rating{
+        .ratings-text-lower();
+        margin-right: 8px;
+    }
+    .count{
+        .ratings-text-lower();
+    }
+}
+
+.page-wrap.page-reviews{
+    .main-content{
+
+    }
+}
+
+// ************************************************
+//     Form Styles (see also: form-style-1.less)
+// ************************************************
+form.review-product{
+    .form-items{
+        .flex-between(flex-start, wrap);
+        width: 100%;
+        max-width: 900px;
+        .item-wrap{
+            &.item-rating{
+                .calc(width; "50% - 11px");
+                @media screen and (max-width: 950px){
+                    width: 100%;
+                }
+            }
+            &.item-nickname{
+                .calc(width; "50% - 11px");
+                input{
+                    text-transform: none !important;
+                }
+                @media screen and (max-width: 950px){
+                    width: 100%;
+                }
+            }
+            &.item-review{
+                width: 100%;
+                .item-inner{
+                    textarea{
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//              General Product Card
+// (maybe should have made this generalized a long time ago)
+// ************************************************
+.product-card{
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    .box-shadow-1();
+    .pc-inner{
+        padding: 31px;
+        .product-titles{
+
+        }
+        .img-wrap{
+            margin: 31px 0;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .img-wrap-2{
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+                .background-image{
+                    padding-bottom: 100%;
+                }
+            }
+        }
+    }
+    .buttons{
+        width: 100%;
+        .button-1{
+            width: 100%;
+            > a, > span, > button{
+                width: 100%;
+            }
+        }
+    }
+}
+
+// ************************************************
+//               Page / Sidebar styles
+// ************************************************
+.page-wrap{
+    .review-product-container{
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 50px;
+        padding-right: 50px;
+        .flex-left(flex-start, wrap);
+        @media screen and (max-width: 768px){
+            max-width: 550px;
+        }
+        @media screen and (max-width: 1200px){
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+        .rp-title{
+            width: 100%;
+            margin-bottom: 50px;
+            > *{
+                margin-bottom: 12px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+            p{
+                .font(14px, 4px);
+                font-weight: 700;
+                color: @red;
+            }
+            @media screen and (max-width: 768px){
+                text-align: center;
+            }
+        }
+        .rp-left{
+            width: 400px;
+            padding-right: 50px;
+            @media screen and (max-width: 1200px){
+                width: 340px;
+                padding-right: 30px;
+            }
+            @media screen and (max-width: 768px){
+                width: 100%;
+                max-width: 330px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+            .rp-left-2{
+                .product-card{
+
+                }
+            }
+        }
+        .rp-right{
+            .width-100-minus(400px);
+            @media screen and (max-width: 1200px){
+                .width-100-minus(340px);
+            }
+            @media screen and (max-width: 768px){
+                width: 100%;
+            }
+            .rp-right-2{
+                form{
+                    text-align: left;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

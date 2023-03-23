@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /account
+Disallow: /cart
+Disallow: /checkout
+Disallow: /reset-password
+Disallow: /trims
+Disallow: /forgot-password
+Disallow: /login
+Disallow: /logout
+Disallow: /order-details
+Disallow: /edit-profile
+Disallow: /reviews
+Disallow: /privacy-policy
+Disallow: /fitment-policy
+Disallow: /return-policy
+
+Sitemap: https://##removed/sitemap.xml

@@ -1,0 +1,106 @@
+
+
+.page-wrap{
+
+    .faq-controls{
+        .flex-right(center);
+        a, button{
+            color: @red;
+            .font(14px, 4px);
+            font-weight: 600;
+            .letter-spacing-medium();
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        &.all-visible{
+            .collapse-all{
+                display: block;
+            }
+            .expand-all{
+                display: none;
+            }
+        }
+        &.all-hidden{
+            .collapse-all{
+                display: none;
+            }
+            .expand-all{
+                display: block;
+            }
+        }
+    }
+
+    .faq-item{
+        position: relative;
+        margin-bottom: 13px;
+        @media screen and (max-width: 500px){
+            margin-bottom: 10px;
+        }
+        &.visible{
+            .question{
+                &::after{
+                    .rotate(-90deg);
+                }
+            }
+        }
+        .question{
+            position: relative;
+            cursor: pointer;
+            .box-shadow-1();
+            padding: 15px 20px;
+            padding-right: 50px;
+            .question-2{
+                .font(15px, 5px);
+                .letter-spacing-small();
+                font-weight: 600;
+                text-transform: none;
+                @media screen and (max-width: 500px){
+                    .font(14px, 5px);
+                }
+            }
+            &::after{
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                .col-flex-center();
+                margin-right: 20px;
+                content: '\f0d7';
+                .font-awesome-fa();
+                color: @red;
+                .rotate(0deg);
+                .trans(all .3s);
+            }
+        }
+        .answer{
+            padding: 40px 20px 27px 20px;
+            .answer-2{
+                .font(14px, 8px);
+            }
+            @media screen and (max-width: 500px){
+                padding-top: 30px;
+                padding-bottom: 20px;
+            }
+            @media screen and (max-width: 430px){
+                padding-left: 7px;
+                padding-right: 7px;
+            }
+        }
+        &.hidden{
+            .question{
+
+            }
+            .answer{
+                display: none;
+            }
+        }
+        &.visible{
+            .question{
+
+            }
+            .answer{
+                display: block;
+            }
+        }
+    }
+}

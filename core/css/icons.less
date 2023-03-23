@@ -1,0 +1,41 @@
+
+// related to SVG icons...
+
+@logo_dark_grey: #333;
+@logo_light_grey: #404040;
+@logo_red: #f21d37; // apparently not quite identical to @red
+@logo_white: white;
+
+// 2 extra possible logo icon..
+.icon-logo_dot_com, .icon-logo_dot_com_caps{
+    .cls-1{
+        fill: @logo_dark_grey;
+    }
+    .cls-2{
+        fill: @logo_red;
+    }
+    .cls-3{
+        fill: @logo_light_grey;
+    }
+    .cls-4{
+        fill: @logo_white;
+    }
+}
+
+// in footer maybe we'll wrap the svg in a .invert-logo,... but the svg itself can't have class adjusted easily
+.invert-logo{
+    .icon-logo_dot_com, .icon-logo_dot_com_caps{
+        .cls-1{
+            fill: @logo_white;
+        }
+        .cls-2{
+            fill: @logo_red;
+        }
+        .cls-3{
+            fill: @logo_white;
+        }
+        .cls-4{
+            fill: @logo_white;
+        }
+    }
+}

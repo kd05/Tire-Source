@@ -1,0 +1,666 @@
+// ************************************************
+//            breakpoints/mixins
+// ************************************************
+
+// contains html that might be cloned into a lightbox
+.session-alerts-hidden{
+    display: none !important;
+}
+
+
+// cannot put breakpoints inside this one
+.header-and-top-image-horizontal-spacing(){
+    width: 85%;
+    max-width: 1466px;
+    margin: 0 auto;
+}
+
+.header-and-top-image-horizontal-spacing-responsive(){
+    @media screen and (max-width: 768px){
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    @media screen and (max-width: 500px){
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    @media screen and (max-width: 430px){
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+@header_hide_account_nav: 860px;
+
+// ************************************************
+//                Mobile Menu
+// ************************************************
+
+body.mobile-menu-active{
+    overflow: hidden !important;
+    .site-header{
+        .header-btm{
+            display: none !important;
+        }
+    }
+}
+
+// overlay
+.mobile-menu-overlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //&.active{
+    //    display: block;
+    //}
+}
+
+.mobile-menu-clone{
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    &::after{
+        content: '';
+        .posa();
+        z-index: 1;
+        background: @textBlack;
+        opacity: .8;
+    }
+    *{
+        color: white;
+    }
+    &.active{
+        display: block;
+    }
+    .mm-wrap{
+        .posa();
+        z-index: 10;
+        overflow-y: auto;
+        padding: 50px;
+        .flex-container(column);
+        // .justify-content(center); do not do this, use margin auto top/bottom for proper overflow
+        .mm-wrap-2{
+            width: 100%;
+            max-width: 320px;
+            margin: auto auto;
+            nav{
+                ul li{
+                    &.page-account{
+                        display: none;
+                    }
+                    &.page-cart{
+                        display: none;
+                    }
+                    @media screen and (max-width: @header_hide_account_nav){
+                        &.page-account{
+                            display: block;
+                        }
+                        &.page-cart{
+                            display: block;
+                        }
+                    }
+                }
+                > ul{
+                    .flex-container(column);
+                    .align-items(center);
+                    // sub menu styles (mobile)
+                    > li ul{
+                        padding-top: 15px;
+                        > li{
+                            margin-bottom: 15px;
+                            &:last-child{
+                                margin-bottom: 0;
+                            }
+                        }
+                        @media screen and (max-width: @header_hide_account_nav){
+                            padding-top: 10px;
+                            > li{
+                                margin-bottom: 10px;
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                        @media screen and (max-width: 500px){
+                            padding-top: 8px;
+                            > li{
+                                margin-bottom: 8px;
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                    // <li> spacing
+                    li{
+                        margin-bottom: 26px;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                        @media screen and (max-width: @header_hide_account_nav){
+                            margin-bottom: 20px;
+                            &:last-child{
+                                margin-bottom: 0;
+                            }
+                        }
+                        @media screen and (max-width: 500px){
+                            margin-bottom: 15px;
+                            &:last-child{
+                                margin-bottom: 0;
+                            }
+                        }
+                        &.expanded{
+                            p.link-wrap{
+                                button{
+                                    .fa{
+                                        .rotate(-90deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    > li{
+                        p.link-wrap, p.link-wrap button .fa{
+                            .font(20px, 4px);
+                            .letter-spacing-medium();
+                            text-transform: uppercase;
+                            color: white;
+                            font-weight: 700;
+                            @media screen and (max-width: 1024px){
+                                .font(18px, 4px);
+                            }
+                            @media screen and (max-width: @header_hide_account_nav){
+                                .font(16px, 4px);
+                            }
+                            @media screen and (max-width: 500px){
+                                .font(15px, 4px);
+                            }
+                        }
+                        p.link-wrap{
+                            position: relative;
+                            text-align: center;
+                            margin-left: auto;
+                            margin-right: auto;
+                            a{
+                                display: block;
+                            }
+                            button{
+                                position: absolute;
+                                top: 0;
+                                left: 100%;
+                                margin-left: 4px;
+                                height: 100%;
+                                padding: 7px;
+                                .col-flex-center( center );
+                                &:hover{
+                                    .fa{
+                                        color: @red;
+                                    }
+                                }
+                                .fa{
+                                    .trans(all .3s);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//              a few generic styles
+// ************************************************
+body.no-top-image{
+    .site-header{
+        @media screen and (max-width: @header_breakpoint_mobile_1 ) {
+            background: @offWhite;
+            border-bottom: 1px solid darken( @offWhite, 5% )
+        }
+    }
+}
+
+.site-header{
+    nav{
+        ul{
+            list-style: none;
+            li{
+                list-style: none;
+            }
+        }
+    }
+}
+
+// ************************************************
+//               mobile menu button
+// ************************************************
+.site-header{
+    button.mobile-menu-trigger{
+        position: relative;
+        display: block;
+        width: 50px;
+        padding: 11px;
+        .close{
+            .col-flex-center();
+            visibility: hidden;
+            opacity: 0;
+            .posa();
+            .trans(all 0s);
+            z-index: 10;
+            .fa{
+                color: @textGrey;
+                font-size: 20px;
+            }
+        }
+        .bars{
+            .col-flex-start();
+            .trans(all 0s);
+            opacity: 1;
+            visibility: visible;
+            .bar{
+                position: relative;
+                z-index: 5;
+                width: 100%;
+                margin-bottom: 3px;
+                height: 3px;
+                background: @textGrey;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &.active{
+            .close{
+                visibility: visible;
+                opacity: 1;
+            }
+            .bars{
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+}
+
+// ************************************************
+//             Top (black bar... flags)
+// ************************************************
+main{
+    // underneath header
+    position: relative;
+    z-index: 100;
+}
+.site-header{
+    position: relative;
+    // beneath lightbox but over top of everything else hopefully
+    // header, fancybox, select2, and gp-lightbox all have to respect each others z-indexes
+    z-index: 1700;
+    .header-top{
+        background: @offBlack;
+        .top-container{
+            width: 100%;
+            max-width: 2560px;
+            padding: 4px 14px;
+            .flex-container(row, nowrap);
+            .justify-content(flex-end);
+            .flex-right(center);
+            // admin link when admin is logged in
+            .pre-flags{
+                margin-right: 12px;
+                a{
+                    .font(12px, 3px);
+                    .letter-spacing-small();
+                    font-weight: 700;
+                    color: white;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .country-nav{
+                display: block;
+                ul{
+                    list-style: none;
+                    .flex-container(row, nowrap);
+                    li{
+                        margin-right: 11px;
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                        a, button{
+                            display: block;
+                            width: 40px;
+                            height: auto;
+                            border: 3px solid transparent;
+                            border-radius: 2px;
+                            img{
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        &.current-item{
+                            a, button{
+                                border: 3px solid white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//         Mid (logo, account navigation)
+// ************************************************
+.site-header{
+    .header-mid{
+        .mid-container{
+            position: relative;
+            padding-top: 20px;
+            padding-bottom: 8px;
+            @media screen and (max-width: @header_breakpoint_full){
+                padding-top: 19px;
+                padding-bottom: 15px;
+            }
+            @media screen and (max-width: 600px){
+                .flex-between(center);
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+            .logo{
+                display: inline-block;
+                padding-left: 40px;
+                @media screen and (max-width: @header_breakpoint_full){
+                    padding-left: 38px;
+                }
+                @media screen and (max-width: @header_breakpoint_full_2){
+                    padding-left: 28px;
+                }
+                @media screen and (max-width: 600px){
+                    padding-left: 0;
+                }
+                .logo-inner{
+                    position: relative;
+                    a{
+                        display: block;
+                        .posa();
+                        z-index: 50;
+                    }
+                    img, svg{
+                        display: block;
+                        width: 456px;
+                        max-width: 100%;
+                        height: auto;
+                        position: relative;
+                        z-index: 1;
+                        @media screen and (max-width: @header_breakpoint_full){
+                            width: 390px;
+                        }
+                        @media screen and (max-width: @header_breakpoint_full_2){
+                            width: 370px;
+                        }
+                        @media screen and (max-width: 600px){
+                            width: 300px;
+                        }
+                    }
+                }
+            }
+            .mid-right{
+                .posa();
+                .flex-container(column);
+                .justify-content(center);
+                @media screen and (max-width: 600px){
+                    display: block;
+                    position: relative;
+                    width: auto;
+                    height: auto;
+                }
+                .wide-container{
+                    width: 100%;
+                    .flex-right( center );
+                    @media screen and (max-width: @header_breakpoint_full){
+                        padding-left: 38px;
+                        padding-right: 38px;
+                    }
+                    @media screen and (max-width: @header_breakpoint_full_2){
+                        padding-left: 28px;
+                        padding-right: 28px;
+                    }
+                    @media screen and (max-width: 600px){
+                        padding: 0;
+                        margin: 0;
+                        width: 100%;
+                        max-width: 100%;
+                    }
+                    .mini-nav{
+                        @media screen and (max-width: @header_hide_account_nav){
+                            display: none;
+                        }
+                        > ul{
+                            .flex-container(row, nowrap);
+                            .align-items(center);
+                            .justify-content(flex-end);
+                            > li{
+                                margin-left: 50px;
+                                @media screen and (max-width: @header_breakpoint_mobile_1){
+                                    margin-left: 40px;
+                                }
+                                &:first-child{
+                                    margin-left: 0;
+                                }
+                                a{
+                                    padding: 5px;
+                                    .font-15-upper();
+                                    color: @textLightGrey;
+                                    .trans(all .2s);
+                                    .fa{
+                                        font-size: 17px;
+                                        padding-right: 4px;
+                                    }
+                                    &:hover{
+                                        color: @red;
+                                    }
+                                    @media screen and (max-width: @header_breakpoint_mobile_1){
+                                        .font(14px, 4px);
+                                    }
+                                }
+                                &.page-contact{
+                                    @media screen and (max-width: @header_breakpoint_mobile_1){
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .mobile-button{
+                        margin-left: 34px;
+                        display: none;
+                        @media screen and (max-width: @header_breakpoint_mobile_1){
+                            display: block;
+                        }
+                        @media screen and (max-width: 600px){
+                            margin-right: -11px;
+                            margin-left: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//                    Bottom
+// ************************************************
+
+// Home Page only
+body.body-page-home{
+    .site-header{
+        .header-btm{
+            .wide-container{
+                .wide-container-inner{
+                    .main-nav{
+                        .calc(width; "100% - 537px");
+                        @media screen and (max-width: @header_breakpoint_full){
+                            .calc(width; "100% - 525px");
+                            padding-left: 15px;
+                        }
+                        @media screen and (max-width: @header_breakpoint_full_2){
+                            padding-left: 8px;
+                        }
+                        @media screen and (max-width: @header_breakpoint_full_3){
+                            width: 100%;
+                        }
+                        @media screen and (max-width: @header_breakpoint_mobile_1){
+                            display: none !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.site-header{
+    .header-btm{
+        .wide-container{
+            @media screen and (max-width: @header_breakpoint_full ){
+                width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            .wide-container-inner{
+                background: @offWhite;
+                .flex-between(stretch);
+                @media screen and (max-width: @header_breakpoint_mobile_1){
+                    .flex-right(stretch);
+                }
+                .main-nav{
+                    width: 100%;
+                    .flex-left( flex-end );
+                    @media screen and (max-width: @header_breakpoint_full){
+                        // this only works when parent width is 100% of body
+                        .header-and-top-image-horizontal-spacing();
+                    }
+                    // more breakpoints
+                    .header-and-top-image-horizontal-spacing-responsive();
+                    @media screen and (max-width: @header_breakpoint_mobile_1){
+                        display: none !important;
+                    }
+                    li.mobile-only{
+                        display: none !important;
+                    }
+                    > ul{
+                        .flex-left( flex-end );
+                        @media screen and (max-width: @header_breakpoint_full){
+                            // margin-left: -34px;
+                        }
+                        > li{
+                            position: relative;
+                            display: block;
+                            > a{
+                            }
+                            > a, > ul > li > a{
+                                min-height: 58px;
+                                padding: 12px 34px 10px 34px;
+                                .col-flex-center(center);
+                                .uppercase();
+                                font-size: 14px;
+                                line-height: 16px;
+                                color: @textGrey;
+                                .trans(all .3s);
+                                &:hover{
+                                    background: @red;
+                                    color: white;
+                                }
+                            }
+                            > ul{
+                                display: none;
+                                position: absolute;
+                                top: 100%;
+                                left: 0;
+                                width: auto;
+                                background: @offWhite;
+                                min-width: 160px;
+                                > li{
+                                    > a{
+                                        white-space: nowrap;
+                                        ul{
+                                            display: none !important;
+                                        }
+                                    }
+                                }
+                            }
+                            &:hover{
+                                > ul{
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+                .shop-nav{
+                    width: 537px;
+                    max-width: 50%;
+                    @media screen and (max-width: @header_breakpoint_full){
+                        width: 525px;
+                    }
+                    @media screen and (max-width: @header_breakpoint_full_3){
+                        display: none;
+                    }
+                    @media screen and (max-width: @header_breakpoint_mobile_1){
+                        .flex-left(stretch);
+                    }
+                    @media screen and (max-width: @home_top_stacks){
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//            Shop Nav (in 2 places)
+// ************************************************
+
+.shop-nav{
+    .flex-left(stretch);
+    .shop-btn{
+        display: block;
+        width: 50%;
+        &.active, &:hover{
+            button{
+                background: @red;
+                color: white;
+            }
+        }
+        a, button{
+            display: block;
+            cursor: pointer;
+            width: 100%;
+            min-height: 58px;
+            .flex-container(column);
+            .justify-content(center);
+            .align-items(center);
+            .uppercase();
+            padding: 12px 34px 10px 34px;
+            color: @textGrey;
+            background: transparent;
+            .trans(all .3s);
+            //&:hover{
+            //    background: @red;
+            //    color: white;
+            //}
+        }
+    }
+}

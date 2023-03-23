@@ -1,0 +1,53 @@
+
+
+.edit-profile-forms{
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    .flex-between(flex-start, wrap);
+    // need higher priority than .ep-item
+    .ep-forgot-password.ep-forgot-password{
+        .flex-right(center);
+        width: 100%;
+        margin-top: 45px;
+        p{
+            .font(14px, 4px);
+            font-weight: 600;
+            text-transform: uppercase;
+            .letter-spacing-medium();
+            color: @textGrey;
+            a{
+                color: @red;
+            }
+        }
+    }
+    .ep-item{
+        width: 47%;
+        @media screen and (max-width: 980px){
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 60px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        form{
+            width: 100%;
+            max-width: 500px;
+            .form-header{
+                text-align: left;
+                *{
+                    text-align: left;
+                }
+            }
+            .form-items{
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+    }
+}

@@ -1,0 +1,375 @@
+// colors are in vars.less
+
+.origin(...){
+    -webkit-transform-origin: @arguments; /* Chrome, Safari, Opera */
+    -ms-transform-origin: @arguments; /* IE 9 */
+    transform-origin: @arguments;
+}
+
+.cover(){
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+}
+
+.scale(@amount){
+    -webkit-transform: scale(@amount);
+    -moz-transform: scale(@amount);
+    -o-transform: scale(@amount);
+    -ms-transform: scale(@amount);
+    transform: scale(@amount);
+}
+
+.trans(...){
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    -ms-transition: @arguments;
+    -o-transition: @arguments;
+    transition: @arguments;
+}
+
+.translate(@x-amount: 0, @y-amount: 0){
+    -webkit-transform: translate(@x-amount, @y-amount);
+    -moz-transform: translate(@x-amount, @y-amount);
+    -ms-transform: translate(@x-amount, @y-amount);
+    transform: translate(@x-amount, @y-amount);
+}
+
+.translateRotate(@x: 0, @y: 0, @rotate: 0deg){
+    -webkit-transform: translateX(@x) translateY(@y) rotate(@rotate);
+    -ms-transform: translateX(@x) translateY(@y) rotate(@rotate);
+    transform: translateX(@x) translateY(@y) rotate(@rotate);
+}
+
+.translateSkewY(@amount1: 1.5, @amount2: -50%, @amount3: -50%, @amount4: 0deg){
+    -webkit-transform: scale(@amount1) translateX(@amount2) translateY(@amount3) skewY(@amount4);
+    -ms-transform: scale(@amount1) translateX(@amount2) translateY(@amount3) skewY(@amount4);
+    transform: scale(@amount1) translateX(@amount2) translateY(@amount3) skewY(@amount4);
+}
+
+.translateX(@amount: 0){
+    -webkit-transform: translateX(@amount);
+    -ms-transform: translateX(@amount);
+    transform: translateX(@amount);
+}
+
+.rotate(@amount: 0deg){
+    -webkit-transform: rotate(@amount);
+    -ms-transform: rotate(@amount);
+    transform: rotate(@amount);
+}
+
+.translateY(@amount: 0){
+    -webkit-transform: translateY(@amount);
+    -ms-transform: translateY(@amount);
+    transform: translateY(@amount);
+}
+
+.translateZ(@amount: 0){
+    -webkit-transform: translateZ(@amount);
+    -ms-transform: translateZ(@amount);
+    transform: translateZ(@amount);
+}
+
+.transform(...){
+    -webkit-transform: @arguments;
+    -ms-transform: @arguments;
+    transform: @arguments;
+}
+
+
+
+// ** Flexbox Mixins
+.flex-container(@flow: row, @wrap: nowrap){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: @flow;
+    -webkit-flex-flow: @flow @wrap;
+    flex-flow: @flow @wrap;
+}
+
+.flex-wrap(@wrap){
+    -webkit-flex-wrap: @wrap;
+    -ms-flex-wrap: @wrap;
+    flex-wrap: @wrap;
+}
+
+.flex-order(@order){
+    -webkit-box-ordinal-group: @order;
+    -ms-box-ordinal-group: @order;
+    -ms-flex-order: @order;
+    -webkit-order: @order;
+    order: @order;
+}
+
+.flex(...){
+    -webkit-box-flex: @arguments;
+    -moz-box-flex: @arguments;
+    -webkit-flex: @arguments;
+    -ms-flex: @arguments;
+    flex: @arguments;
+}
+
+.align-items(@param){
+    -webkit-align-items: @param;
+    align-items: @param;
+}
+
+.align-self(@param){
+
+    -webkit-align-self: @param;
+    align-self: @param;
+}
+
+.justify-content(@param){
+    -webkit-justify-content: @param;
+    justify-content: @param;
+}
+
+.filter(...){
+    -webkit-filter: @arguments;
+    filter: @arguments;
+}
+
+.backface-visibility(@visibility){
+    -webkit-backface-visibility: @visibility;
+    backface-visibility: @visibility;
+}
+
+.animation(@animation; @delay: 0){
+    -webkit-animation: @animation;
+    animation: @animation;
+    -webkit-animation-delay: @delay;
+    animation-delay: @delay;
+}
+
+.placeholder(@rules){
+
+    &::-webkit-input-placeholder{
+        @rules();
+    }
+    &:-moz-placeholder{
+        @rules();
+    }
+    &::-moz-placeholder{
+        @rules();
+    }
+    &:-ms-input-placeholder{
+        @rules();
+    }
+}
+
+.box-shadow(@a: 0, @b: 4px, @c: 7px, @d: 3px, @opacity: .2 ){
+    -webkit-box-shadow: @a @b @c @d rgba(0, 0, 0, @opacity);
+    -moz-box-shadow: @a @b @c @d rgba(0, 0, 0, @opacity);
+    box-shadow: @a @b @c @d rgba(0, 0, 0, @opacity);
+}
+
+.box-shadow-1(){
+    .box-shadow(0, 0, 6px, 2px);
+}
+
+// can pass in hex color, then opacity
+.horz-grad(@c1, @c2, @op1: 100, @op2: 0 ){
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100&1+0,0+100 */
+    background: -moz-linear-gradient(left, fade(@c1, @op1) 0%, fade(@c2, @op2) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, fade(@c1, @op1) 0%, fade(@c2, @op2) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, fade(@c1, @op1) 0%, fade(@c2, @op2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@c1, endColorstr=@c2, GradientType=1); /* IE6-9 */
+}
+
+// can pass in hex color, then opacity
+.vert-grad(@c1, @c2, @op1: 100, @op2: 0 ){
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100&1+0,0+100 */
+    background: -moz-linear-gradient(top, fade(@c1, @op1) 0%, fade(@c2, @op2) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, fade(@c1, @op1) 0%, fade(@c2, @op2) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, fade(@c1, @op1) 0%, fade(@c2, @op2) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@c1, endColorstr=@c2, GradientType=1); /* IE6-9 */
+}
+
+.input-icon-reset(){
+    input[type=text]::-ms-clear{
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    input[type=text]::-ms-reveal{
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration{
+        display: none;
+    }
+}
+
+.screen-reader-text(){
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.screen-reader-text{
+    .screen-reader-text();
+}
+
+button.css-reset{
+    .button-css-reset();
+}
+
+.posa-overflowed( @amt: 10px){
+    @times_2: @amt * 2;
+    position: absolute;
+    top: -@amt;
+    left: -@amt;
+    .calc(width; "100% + @{times_2}");
+    .calc(height; "100% + @{times_2}");
+}
+
+.posa(){
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.button-css-reset(){
+    border-radius: 0;
+    background: none;
+    display: inline-block; // dont make display block it ruins our generic buttons
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+}
+
+.form-css-reset(){
+    -webkit-appearance: none;
+    background: none;
+    background-image: none !important;
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+input.css-reset, form .css-reset{
+    .form-css-reset();
+}
+
+.text-shadow( @p1: 0, @p2: 1px, @p3: 3px, @c: black, @op: 25 ){
+    text-shadow: @p1 @p2 @p3 fade(@c, @op);
+}
+
+.inherit(){
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+.calc(@prop; @val){
+        @{prop}: calc(~'@{val}');
+        @{prop}: -moz-calc(~'@{val}');
+        @{prop}: -webkit-calc(~'@{val}');
+        @{prop}: -o-calc(~'@{val}');
+}
+
+.prop-100-minus( @prop: width, @px: 0){
+    .calc(@prop; "100% - @{px}");
+}
+
+.prop-100-plus( @prop: width, @px: 0){
+    .calc(@prop; "100% + @{px}");
+}
+
+.width-100-plus-and-margins( @margin: 10px ){
+    .width-100-plus( @margin * 2);
+    margin-left: @margin * -1;
+    margin-right: @margin * -1;
+}
+
+.width-100-plus( @px ){
+    .prop-100-plus(width, @px);
+}
+
+.width-100-minus( @px ){
+    .prop-100-minus(width, @px);
+}
+
+.flex-between( @align: stretch, @wrap: nowrap ){
+    .flex-container(row, @wrap);
+    .justify-content(space-between);
+    .align-items(@align);
+}
+
+.flex-around( @align: stretch, @wrap: nowrap ){
+    .flex-container(row, @wrap);
+    .justify-content(space-around);
+    .align-items(@align);
+}
+
+.flex-left( @align: stretch, @wrap: nowrap ){
+    .flex-container(row, @wrap);
+    .justify-content(flex-start);
+    .align-items(@align);
+}
+
+.flex-center( @align: stretch, @wrap: nowrap ){
+    .flex-container(row, @wrap);
+    .justify-content(center);
+    .align-items(@align);
+}
+
+.flex-right( @align: stretch, @wrap: nowrap ){
+    .flex-container(row, @wrap);
+    .justify-content(flex-end);
+    .align-items(@align);
+}
+
+.col-flex-between( @align: stretch ){
+    .flex-container(column);
+    .justify-content(space-between);
+    .align-items(@align);
+}
+
+.col-flex-around( @align: stretch ){
+    .flex-container(column);
+    .justify-content(space-around);
+    .align-items(@align);
+}
+
+.col-flex-start( @align: stretch ){
+    .flex-container(column);
+    .justify-content(flex-start);
+    .align-items(@align);
+}
+
+.col-flex-center( @align: stretch ){
+    .flex-container(column);
+    .justify-content(center);
+    .align-items(@align);
+}
+
+.col-flex-end( @align: stretch ){
+    .flex-container(column);
+    .justify-content(flex-end);
+    .align-items(@align);
+}
+
+.margin-bottom-except-last( @amt ){
+    margin-bottom: @amt;
+    &:last-child{
+        margin-bottom: 0;
+    }
+}

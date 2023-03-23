@@ -1,0 +1,18 @@
+# Redirect www and http to non-www https
+#RewriteEngine On
+#RewriteCond %{HTTPS} off [OR]
+#RewriteCond %{HTTP_HOST} ^www\. [NC]
+#RewriteRule ^ https://tiresource.com%{REQUEST_URI} [L,NE,R=301]
+
+Options -Indexes
+
+<FilesMatch "composer.json|composer.lock">
+  order allow,deny
+  Deny from all
+</FilesMatch>
+
+# php routing, unless request hits existing file or directory
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]

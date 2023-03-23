@@ -1,0 +1,25 @@
+{
+    "name": "geekpower/tiresource",
+    "description": "Custom System",
+    "type": "project",
+    "require": {
+        "curl/curl": "^1.8",
+        "phpmailer/phpmailer": "^6.0",
+        "craigpaul/moneris-api": "^0.6.3",
+        "thunderer/shortcode": "^0.6.5",
+        "phpseclib/phpseclib": "~2.0",
+        "mcs/amazon-mws": "^0.1.26",
+        "jaybizzle/crawler-detect": "1.*",
+        "gumlet/php-image-resize": "1.9.2",
+        "altorouter/altorouter": "^2.0",
+        "phpunit/phpunit": "^8.5"
+    },
+    "scripts": {
+        "test": [
+            ".\\vendor\\bin\\phpunit --bootstrap ./core/_init.php ./core"
+        ],
+        "sync-cw": [
+            "php core/scripts/copy-product-sync.php"
+        ]
+    }
+}

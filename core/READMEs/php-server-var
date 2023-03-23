@@ -1,0 +1,118 @@
+Dumps $_SERVER from prod and in my test env.
+Sometimes need to take a look at this for routing type things.
+
+PRODUCTION:
+Array
+(
+    [HTTPS] => on
+    [forwarded] => 1
+    [HTTP_SEC_CH_UA] => " Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_DNT] => 1
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+    [HTTP_SEC_FETCH_SITE] => none
+    [HTTP_SEC_FETCH_MODE] => navigate
+    [HTTP_SEC_FETCH_USER] => ?1
+    [HTTP_SEC_FETCH_DEST] => document
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9,la;q=0.8
+    [HTTP_COOKIE] => cdn.moneris.760000.ka.ck=****; cw_locale=CA; cw_session=****
+    [HTTP_SEC_GPC] => 1
+    [HTTP_HOST] => tiresource.com
+    [HTTP_X_FORWARDED_HOST] => tiresource.com
+    [HTTP_X_FORWARDED_PORT] => 443
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_FORWARDED] => for=76.69.91.184;host=tiresource.com;proto=https
+    [HTTP_X_FORWARDED_FOR] => 76.69.91.184
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    [SERVER_SIGNATURE] =>
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => tiresource.com
+    [SERVER_ADDR] => 10.133.3.66
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 76.69.91.184
+    [DOCUMENT_ROOT] => /var/www/html
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] =>
+    [CONTEXT_DOCUMENT_ROOT] => /var/www/html
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => /var/www/html/joel-test.php
+    [REMOTE_PORT] => 42102
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] =>
+    [REQUEST_URI] => /joel-test.php
+    [SCRIPT_NAME] => /joel-test.php
+    [PHP_SELF] => /joel-test.php
+    [REQUEST_TIME_FLOAT] => 1625856742.3761
+    [REQUEST_TIME] => 1625856742
+)
+
+MY LOCAL:
+(
+    [REDIRECT_MIBDIRS] => C:/xampp/php/extras/mibs
+    [REDIRECT_MYSQL_HOME] => \xampp\mysql\bin
+    [REDIRECT_OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [REDIRECT_PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [REDIRECT_PHPRC] => \xampp\php
+    [REDIRECT_TMP] => \xampp\tmp
+    [REDIRECT_STATUS] => 200
+    [MIBDIRS] => C:/xampp/php/extras/mibs
+    [MYSQL_HOME] => \xampp\mysql\bin
+    [OPENSSL_CONF] => C:/xampp/apache/bin/openssl.cnf
+    [PHP_PEAR_SYSCONF_DIR] => \xampp\php
+    [PHPRC] => \xampp\php
+    [TMP] => \xampp\tmp
+    [HTTP_HOST] => localhost:8080
+    [HTTP_CONNECTION] => keep-alive
+    [HTTP_CACHE_CONTROL] => max-age=0
+    [HTTP_SEC_CH_UA] => " Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_DNT] => 1
+    [HTTP_UPGRADE_INSECURE_REQUESTS] => 1
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+    [HTTP_ACCEPT] => text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+    [HTTP_SEC_FETCH_SITE] => none
+    [HTTP_SEC_FETCH_MODE] => navigate
+    [HTTP_SEC_FETCH_USER] => ?1
+    [HTTP_SEC_FETCH_DEST] => document
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9,la;q=0.8
+    [HTTP_COOKIE] => cw_locale=CA; Phpstorm-f285636f=-7aa8--bc10-; Phpstorm-e01288d1=-fbb6-4e99-9361-; cdn.moneris.760000.ka.ck=; _hjid=---807b-cd1594d5e1d2; PHPSESSID=m85v41tu0pu0ghhuism2lbaven; _ga=GA1.1.1695527493.1608150589; token=eyJhbGciOiJIUzI1NiJ9..-W6HlewM; username=Dorknoob; userid=17068; io=sNV--AAAA; cw_session=
+    [HTTP_SEC_GPC] => 1
+    [PATH] => C:\Program Files (x86)\ImageMagick-7.0.10-Q16;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\Program Files (x86)\dotnet\;C:\Program Files\nodejs\;C:\Users\Joel\.cargo\bin;C:\Ruby26-x64\bin;C:\Users\Joel\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\Joel\AppData\Local\Programs\Python\Python37\;C:\Users\Joel\AppData\Local\Microsoft\WindowsApps;C:\xampp\php;C:\wp-cli;C:\Users\Joel\AppData\Roaming\Composer\vendor\bin;C:\Users\Joel\AppData\Roaming\Python\Python37\Scripts;D:\scripts;C:\Program Files\JetBrains\PhpStorm 2020.3.2\bin;;D:\lein;C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.3\bin;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3.3\bin;;C:\Users\Joel\Documents\WindowsPowerShell\Modules\ClojureTools;C:\Program Files\JetBrains\JetBrains Rider 2019.3.4\bin;;C:\xampp\apache\bin;C:\Users\Joel\AppData\Roaming\npm;C:\Program Files\MariaDB 10.5\bin;
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.RB;.RBW
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] =>
+Apache/2.4.33 (Win32) OpenSSL/1.1.0h PHP/7.2.5 Server at localhost Port 8080
+
+
+    [SERVER_SOFTWARE] => Apache/2.4.33 (Win32) OpenSSL/1.1.0h PHP/7.2.5
+    [SERVER_NAME] => localhost
+    [SERVER_ADDR] => ::1
+    [SERVER_PORT] => 8080
+    [REMOTE_ADDR] => ::1
+    [DOCUMENT_ROOT] => C:/xampp/htdocs
+    [REQUEST_SCHEME] => http
+    [CONTEXT_PREFIX] =>
+    [CONTEXT_DOCUMENT_ROOT] => C:/xampp/htdocs
+    [SERVER_ADMIN] => postmaster@localhost
+    [SCRIPT_FILENAME] => C:/xampp/htdocs/tiresource/router.php
+    [REMOTE_PORT] => 59093
+    [REDIRECT_URL] => /tiresource/wheels
+    [REDIRECT_QUERY_STRING] => wheels
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => wheels
+    [REQUEST_URI] => /tiresource/wheels
+    [SCRIPT_NAME] => /tiresource/router.php
+    [PHP_SELF] => /tiresource/router.php
+    [REQUEST_TIME_FLOAT] => 1625856851.286
+    [REQUEST_TIME] => 1625856851
+)

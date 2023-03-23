@@ -1,0 +1,30 @@
+
+// ************************************************
+//              Ajax Loading Animation
+// ************************************************
+
+form.cw-ajax, form.overlay-on-load{
+    position: relative;
+    &.overlay-on-load{
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            .calc(width; "100% + 20px");
+            .calc(height; "100% + 20px");
+            background: black;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 0;
+        }
+        &.ajax-loading{
+            &::before{
+                z-index: 5000;
+                opacity: .5;
+                visibility: visible;
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+
+// ************************************************
+//             General Account Page
+// ************************************************
+
+.page-wrap{
+
+    .account-container{
+        position: relative;
+        width: 100%;
+        max-width: 850px;
+        // not margin: 0 auto
+        .table-wrap{
+            width: 100%;
+            table{
+                min-width: 100%;
+            }
+        }
+        .account-section{
+            margin-bottom: 60px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    .account-title.account-title{
+        .font(22px, 5px);
+        text-transform: uppercase;
+        .letter-spacing-medium();
+        font-weight: 600;
+        color: @textGrey;
+        margin-bottom: 18px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        @media screen and (max-width: 1360px){
+            .font(20px, 5px);
+        }
+        @media screen and (max-width: 640px){
+            .font(18px, 5px);
+        }
+    }
+    h1.account-title.account-title{
+        .font(30px, 5px);
+        @media screen and (max-width: 1360px){
+            .font(28px, 5px);
+        }
+        @media screen and (max-width: 640px){
+            .font(24px, 5px);
+        }
+    }
+}

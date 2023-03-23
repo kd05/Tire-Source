@@ -1,0 +1,235 @@
+
+// ************************************************
+//              input fields with icons
+// ************************************************
+.form-field-type-1{
+    position: relative;
+    &.field-textarea{
+        label{
+            height: 48px;
+        }
+        textarea{
+            height: 184px;
+        }
+    }
+    label{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        .flex-container(column);
+        .justify-content(center);
+        padding-right: 20px;
+        .fa{
+            color: @red;
+            font-size: 18px;
+            .trans(all .3s);
+        }
+    }
+    input, textarea{
+        display: block;
+        width: 100%;
+        padding: 15px 48px 15px 20px;
+        background: white;
+        color: @textGrey;
+        font-size: 14px;
+        text-transform: none;
+        .montserrat();
+        font-weight: 700;
+        .letter-spacing-medium();
+        .placeholder({
+            color: @textLightGrey2;
+            .montserrat();
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+        });
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        outline: none;
+        &:focus + label{
+            .fa{
+                color: @textGrey;
+            }
+        }
+    }
+    input{
+        text-transform: uppercase;
+    }
+}
+
+// ************************************************
+//                 Form Styles
+// ************************************************
+.contact-banner{
+    form{
+        position: relative;
+        z-index: 20;
+        width: 100%;
+        max-width: 770px;
+        margin: 0 auto;
+        .flex-container(row, wrap);
+        .justify-content(center);
+        .align-items(stretch);
+        @media screen and (max-width: 700px){
+            max-width: 450px;
+        }
+        &.ajax-loading{
+            opacity: .85;
+            &::before{
+                visibility: visible;
+            }
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            z-index: 5000;
+            top: -10px;
+            left: -10px;
+            .calc(width; "100% + 20px");
+            .calc(height; "100% + 20px");
+            background: none;
+            opacity: 0;
+            visibility: hidden;
+            .trans(all .3s);
+        }
+        .form-col{
+            width: 50%;
+            &.left{
+                padding-right: 10px;
+            }
+            &.right{
+                padding-left: 10px;
+            }
+            .form-col-inner{
+                .form-field-type-1{
+                    width: 100%;
+                    margin-bottom: 20px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            @media screen and (max-width: 700px){
+                width: 100%;
+                margin-bottom: 20px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                &.left, &.right{
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+        .ajax-response{
+            width: 100%;
+            margin-top: 28px;
+            background: white;
+            border-left: 3px solid @red;
+            padding: 18px 22px;
+            &.empty{
+                display: none;
+            }
+            > *{
+                margin-bottom: 10px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+            *{
+                color: @textBlack;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 18px;
+                text-align: center;
+            }
+        }
+        .submit-wrap{
+            padding-top: 28px;
+        }
+    }
+}
+
+
+// ************************************************
+//     Contact Banner (probably in footer)
+// ************************************************
+.contact-banner{
+    width: 100%;
+    position: relative;
+    padding: 85px 0 80px 0;
+    @media screen and (max-width: 1650px){
+        padding: 75px 0;
+    }
+    @media screen and (max-width: 1440px){
+        padding: 65px 0;
+    }
+    .background-image{
+        z-index: 1;
+    }
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        .vert-grad(black, black, 100, 25);
+    }
+    .container{
+        position: relative;
+        z-index: 20;
+        width: 100%;
+        max-width: 960px;
+        text-align: center;
+        @media screen and (max-width: 900px){
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        @media screen and (max-width: 700px){
+
+        }
+        @media screen and (max-width: 430px){
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+        .content-top{
+            // if using a phone number, set this to 35px
+            margin-bottom: 44px;
+            .contact-banner-title{
+                margin-bottom: 15px;
+                color: white;
+            }
+            .line-under{
+                width: 116px;
+                max-width: 100%;
+                margin: 0 auto;
+                height: 3px;
+                background: white;
+                margin-bottom: 37px;
+            }
+            .contact-banner-phone{
+                a{
+                    font-size: 20px;
+                    line-height: 24px;
+                    text-transform: uppercase;
+                    color: @red;
+                    .letter-spacing-large();
+                }
+            }
+            @media screen and (max-width: 900px){
+                margin-bottom: 25px;
+                h1, p{
+                    margin-bottom: 21px;
+                }
+                .line-under{
+                    margin-bottom: 21px;
+                }
+            }
+        }
+    }
+}

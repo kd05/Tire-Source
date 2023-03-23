@@ -1,0 +1,114 @@
+
+// Order History table - on account.php page
+.table-wrap.order-history{
+    table{
+        td.cell-see_more{
+            a{
+                color: @red;
+            }
+        }
+    }
+}
+
+// Titles wrapper
+.order-details-wrapper{
+    .general-titles{
+        margin-bottom: 50px;
+    }
+}
+
+// Cart Box General - increase padding
+.container.order-details-wrapper{
+
+    @media screen and (max-width: 768px){
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    @media screen and (max-width: 430px){
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cart-section{
+        .cart-box{
+            padding: 50px;
+            @media screen and (max-width: 768px){
+                padding: 38px 30px;
+            }
+            @media screen and (max-width: 430px){
+                padding: 25px 20px;
+            }
+        }
+    }
+}
+
+// Cart Item Table
+.cart-section.order-details-items{
+    .cart-box{
+        width: 100%;
+        .table-wrap{
+            width: 100%;
+            table{
+                margin-left: auto;
+                margin-right: auto;
+                th, td{
+                    background: transparent;
+                    border: 1px solid @borderGrey;
+                    text-align: left;
+                }
+                th{
+                    color: @textBlack
+                }
+                td{
+                    color: @textGrey;
+                }
+            }
+        }
+    }
+}
+
+// Cart Receipt
+.cart-section.order-details-receipt{
+    .cart-box{
+        .cart-receipt{
+            max-width: 575px;
+        }
+    }
+}
+
+// billing/shipping address in 2 columns
+.address-details{
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    .adr-flex{
+        .flex-left(stretch, wrap);
+        .width-100-plus-and-margins( 12px );
+        .adr-col{
+            width: 50%;
+            padding: 0 12px;
+            .flex-left(stretch);
+            @media screen and (max-width: 640px){
+                width: 100%;
+                margin-bottom: 50px;
+                &:last-child{
+                    margin-bottom: 8px;
+                }
+            }
+            .adr-col-2{
+                width: 100%;
+                p{
+                    margin-bottom: 7px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                    &.title{
+                        .like-h3();
+                        margin-bottom: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

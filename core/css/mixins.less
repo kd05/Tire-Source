@@ -1,0 +1,165 @@
+
+.letter-spacing-large(){
+    letter-spacing: .22em;
+}
+
+.letter-spacing-medium(){
+    letter-spacing: .12em;
+}
+
+.letter-spacing-small(){
+    letter-spacing: .08em;
+}
+
+//  get 16/20, or 17/21, or 18/22 more easily
+.font( @fs: 16px, @plus_line_height: 4px ){
+    font-size: @fs;
+    line-height: @fs + @plus_line_height;
+}
+
+.font-16(){
+    font-size: 16px;
+    line-height: 24px;
+}
+.font-15(){
+    font-size: 15px;
+    line-height: 23px;
+}
+.font-14(){
+    font-size: 14px;
+    line-height: 22px;
+}
+.font-13(){
+    font-size: 13px;
+    line-height: 21px;
+}
+.font-12(){
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.uppercase( @ls: .22em){
+    text-transform: uppercase;
+    letter-spacing: @ls;
+}
+
+// not the same as .font-15() and .uppercase()
+.font-15-uppercase(){
+    font-size: 15px;
+    line-height: 19px;
+    .uppercase();
+}
+
+// not the same as .font-15() and .uppercase()
+.font-14-uppercase(){
+    font-size: 14px;
+    line-height: 18px;
+    .uppercase();
+}
+
+
+// 18
+.font-18-upper(){
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    .letter-spacing-medium();
+}
+
+// 16
+.font-16-upper(){
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    .letter-spacing-large();
+}
+
+// 15
+.font-15-upper(){
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    .letter-spacing-medium();
+}
+
+.font-15-upper-spaced(){
+    font-size: 15px;
+    line-height: 18px;
+    .letter-spacing-large();
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+// 14
+.font-14-upper(){
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    .letter-spacing-medium();
+}
+.font-14-upper-spaced(){
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    .letter-spacing-large();
+}
+
+// 13
+.font-13-upper(){
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    .letter-spacing-medium();
+}
+
+.font-13-lower(){
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 400;
+    .letter-spacing-small();
+}
+
+.font-12-upper(){
+    font-size: 12px;
+    line-height: 15px;
+    .montserrat();
+    .uppercase();
+    font-weight: 700;
+}
+
+.font-12-upper-small(){
+    .font-12-upper();
+    .letter-spacing-small();
+}
+
+.font-12-upper-medium(){
+    .font-12-upper();
+    .letter-spacing-medium();
+}
+
+.font-12-upper-large(){
+    .font-12-upper();
+    .letter-spacing-large();
+}
+
+// select
+.select( @width: 212px ){
+    width: @width;
+    font-weight: 700;
+    .montserrat();
+    font-size: 14px;
+    text-transform: uppercase;
+    color: @textGrey;
+    outline: none;
+    padding: 8px 15px;
+}
+
+.like-select{
+    .select();
+}

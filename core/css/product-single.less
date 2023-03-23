@@ -1,0 +1,301 @@
+
+
+// ************************************************
+//     little red text in large font headers
+// ************************************************
+
+.products-page-title, h1, h2, h3, h4, h5, h6{
+    .extra{
+        display: inline-block;
+        .font-14-uppercase();
+        color: @red;
+        margin-left: 10px;
+        @media screen and (max-width: 768px){
+            .font(13px, 4px);
+        }
+        @media screen and (max-width: 430px){
+            .font(12px, 4px);
+        }
+    }
+}
+
+// ************************************************
+//         Other Colors (single rim page)
+// ************************************************
+.page-wrap{
+    // ie. "Rims also come in these colours"
+    .other-colors{
+        margin-bottom: 20px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        > p{
+            font-size: 14px;
+            font-weight: 700;
+            color: @textGrey;
+            margin-bottom: 10px;
+        }
+        .oc-items{
+            margin-bottom: 0;
+            .oc-flex{
+                .flex-container(row, wrap);
+                .justify-content(flex-start);
+                .calc(width; "100% + 10px");
+                margin-left: -5px;
+                margin-right: -5px;
+                margin-bottom: -5px;
+                .oc-item{
+                    width: 130px;
+                    padding: 0 5px;
+                    margin-bottom: 5px;
+                    > a{
+                        display: block;
+                        width: 100%;
+                        .trans(all .3s);
+                        padding: 7px;
+                        background: white;
+                        .background-image{
+                            display: block;
+                            width: 100%;
+                            padding-bottom: 100%;
+                        }
+                        &:hover{
+                            background: darken( @offWhite, 8% );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//  General Styles (page layout, vertical spacing)
+// ************************************************
+.single-product-page{
+    &.rim-page{
+        .main-content{
+            .sp-tables{
+                max-width: 1360px; 
+            }
+        }
+    }
+    .main-content.main-content{
+        padding: 0;
+    }
+    .single-product-container{
+        position: relative;
+        width: 1460px;
+        max-width: 100%;
+        padding: 60px 30px 95px 30px;
+        margin: 0 auto;
+        .sp-reviews{
+            width: 100%;
+            max-width: 1260px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 95px;
+
+            // make sure this matches the add to cart button widths.
+            // search in the code: asdibh7aw76dgva7s65dgasd
+            padding-right: @product_table_add_to_cart_width_1;
+            @media screen and (max-width: 1440px){
+                padding-right: @product_table_add_to_cart_width_2;
+            }
+            @media screen and (max-width: 900px){
+                padding-right: 0;
+            }
+        }
+        @media screen and (max-width: 1650px){
+            padding-bottom: 85px;
+            .sp-reviews{
+                margin-top: 85px;
+            }
+        }
+        @media screen and (max-width: 1440px){
+        }
+        @media screen and (max-width: 600px){
+            padding: 55px 28px 60px 28px;
+            .sp-reviews{
+                margin-top: 60px;
+            }
+        }
+        @media screen and (max-width: 430px){
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+    }
+    .main-content{
+        .sp-title{
+            margin-bottom: 80px;
+            @media screen and (max-width: 1650px){
+                margin-bottom: 70px;
+            }
+            @media screen and (max-width: 1440px){
+                margin-bottom: 55px;
+            }
+            @media screen and (max-width: 500px){
+                margin-bottom: 40px;
+            }
+            &.empty{
+                height: 45px;
+                margin-bottom: 0;
+                @media screen and (max-width: 1200px){
+                    height: 20px;
+                }
+                @media screen and (max-width: 900px){
+                    display: none;
+                }
+            }
+        }
+        .sp-main{
+            margin-bottom: 100px;
+            width: 100%;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            .flex-left( flex-start, wrap );
+            @media screen and (max-width: 900px){
+                margin-bottom: 75px;
+            }
+            @media screen and (max-width: 430px){
+                margin-bottom: 60px;
+            }
+            .left{
+                width: 50%;
+                @media screen and (max-width: 900px){
+                    display: none;
+                }
+                .left-inner{
+                    width: 90%;
+                    max-width: 540px;
+                    margin-left: 25px;
+                    @media screen and (max-width: 1250px){
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 95%;
+                    }
+                    .img-tag-background{
+                        width: 100%;
+                        padding-bottom: 100%;
+                    }
+                }
+                .other-colors{
+                    margin-top: 50px;
+                }
+            }
+            .right{
+                width: 50%;
+                padding: 30px 30px;
+                @media screen and (max-width: 900px){
+                    width: 100%;
+                    padding: 0;
+                }
+                .content-wrap{
+                    width: 100%;
+                    max-width: 610px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    .mobile-image{
+                        display: none;
+                        @media screen and (max-width: 900px){
+                            display: block;
+                            .bg-wrap{
+                                width: 400px;
+                                max-width: 100%;
+                                .background-image{
+                                    position: relative;
+                                    padding-bottom: 100%;
+                                }
+                            }
+                        }
+                    }
+                    .logo-wrap{
+
+                    }
+                }
+            }
+        }
+        .sp-tables{
+            margin-bottom: 0;
+            width: 100%;
+            max-width: 1260px;
+            margin-left: auto;
+            margin-right: auto;
+            // a message that may show up in some specific contexts
+            .product-not-found{
+                margin-bottom: 50px;
+                padding: 25px 22px;
+                background: white;
+                .box-shadow-1();
+                p{
+                    .font-12-upper();
+                    color: @textBlack;
+                    a{
+                        .inherit();
+                        color: @red;
+                    }
+
+                }
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .gp-flex-table{
+                margin-bottom: 50px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+
+.table-title-with-image{
+    .flex-left(center);
+    width: 100%;
+    cursor: pointer;
+    .image-wrap{
+        display: block;
+        position: relative;
+        margin-right: 22px;
+        img{
+            display: block;
+            width: 110px;
+            height: auto;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -6px;
+            right: -6px;
+            bottom: -4px;
+            background: black;
+            opacity: 0;
+            .trans(all .3s);
+        }
+    }
+    &:hover{
+        .image-wrap{
+            &::before{
+                opacity: 0.15;
+            }
+        }
+    }
+    .title-wrap{
+        .title{
+            display: block;
+        }
+        .etc{
+            display: block;
+            margin-top: 4px;
+            font-size: 15px;
+            line-height: 18px;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            text-transform: none;
+        }
+    }
+}

@@ -1,0 +1,838 @@
+
+
+.product-loop-spacing( @amt: 17px ) {
+    @times_2: @amt * 2;
+    margin-left: -@amt;
+    margin-right: -@amt;
+    .calc(width; "100% + @{times_2}");
+    .flex-item-outer{
+        padding-left: @amt;
+        padding-right: @amt;
+        margin-bottom: @times_2;
+    }
+}
+
+// ************************************************
+//        Loop Wrapper - Before & After loop
+// ************************************************
+
+.product-loop-wrapper{
+    // total items count, possibly "compare" button, etc.
+    .before-loop{
+        padding: 21px 0;
+        .flex-between(center);
+        // some pages have different items inside of left and right..
+        // and left can be empty sometimes also.
+        .before-loop-left{}
+        .before-loop-right{}
+        @media screen and (max-width: @prod_archive_stack_all_550 ){
+            display: block;
+            .before-loop-left{
+                display: block;
+            }
+            .before-loop-right{
+                display: block;
+            }
+        }
+        .product-sort-by{
+            @media screen and (max-width: @prod_archive_stack_all_550 ){
+                padding: 20px 0 0 0;
+            }
+            .select-2-wrapper{
+                select, .select2-container .selection .select2-selection .select2-selection__rendered{
+                    color: @textLightGrey;
+                    @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                        .font(13px, 4px);
+                    }
+                }
+                select, .select2-container{
+                    width: 230px;
+                }
+            }
+        }
+        .product-counts{
+            padding: 5px 0; // add vertical space when sort by box is not showing
+            .flex-container(row, nowrap);
+            .justify-content(flex-end);
+            @media screen and (max-width: @prod_archive_stack_all_550 ){
+                display: block;
+                padding: 20px 0 0 0;
+            }
+            p{
+                font-size: 14px;
+                line-height: 18px;
+                text-transform: uppercase;
+                .letter-spacing-large();
+                font-weight: 700;
+                color: @textLightGrey2;
+                @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                    .font(13px, 4px);
+                }
+            }
+            .empty{
+                display: none;
+            }
+        }
+    }
+    // pagination, and items per page drop down
+    .after-loop{
+        padding-top: 10px;
+        .pagination-section{
+            .flex-between(center);
+            // note: .pagination-wrap div is always present, even though
+            // its contents are sometimes empty. This is necessary for justify-content(space-between);
+            @media screen and (max-width: @prod_archive_1_col_768 ){
+                padding-top: 0;
+                margin-top: -10px;
+                display: block;
+            }
+            .pagination-wrap{
+                .gp-pagination{
+                    padding-right: 30px;
+                }
+                @media screen and (max-width: @prod_archive_1_col_768 ){
+                    .gp-pagination{
+                        padding: 20px 0 0 0;
+                    }
+                }
+            }
+            .per-page-wrap{
+                select, .select2-container{
+                    width: 210px;
+                }
+                select, .select2-container .select2-selection__rendered{
+                    //@media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                    //    .font(13px, 4px);
+                    //}
+                }
+                @media screen and (max-width: @prod_archive_1_col_768 ){
+                    padding: 20px 0 0 0;
+                }
+            }
+        }
+    }
+    &.empty{
+        .after-loop{
+            display: none;
+        }
+        .before-loop{
+            display: none;
+        }
+    }
+}
+
+// ************************************************
+//       pkg details, pkgs page and in lightbox
+// ************************************************
+
+.pkg-details{
+    text-align: center;
+    .price-text{
+        color: @textGrey;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 23px;
+        .letter-spacing-medium();
+        margin-bottom: 11px;
+    }
+    .price{
+
+    }
+    .stock-level{
+        margin-top: 8px;
+        display: block;
+        text-align: center;
+        .stock-level-indicator{
+            .justify-content(center);
+            .sl-bg{
+                font-size: 14px;
+                .sl-text{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//                  Loop Items
+// ************************************************
+
+.product-loop{
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    .pl-flex{
+        position: relative;
+        z-index: 100;
+        .flex-left(stretch, wrap);
+        .product-loop-spacing( 17px );
+        @media screen and (max-width:@prod_archive_1875){
+            .product-loop-spacing( 14px );
+        }
+        @media screen and (max-width: @header_breakpoint_full){
+            // .product-loop-spacing( 13px );
+        }
+        @media screen and (max-width: @prod_archive_1440 ){
+            .product-loop-spacing( 11px );
+        }
+        @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+            .product-loop-spacing( 15px );
+        }
+        //@media screen and (max-width: @prod_archive_1020 ) {
+        //    .product-loop-spacing( 12px );
+        //}
+        @media screen and (max-width: @prod_archive_1_col_768 ) {
+            width: 100%;
+            max-width: 390px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+        }
+        @media screen and (max-width: @prod_archive_stack_all_550 ) {
+            //margin-left: 0;
+            //margin-right: 0;
+            width: 100%;
+            .flex-item-outer{
+                padding-left: 0;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+        .flex-item-outer{
+            width: 33.33333333%;
+            .flex-left( stretch ); // child height 100%
+            @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+                width: 50%;
+            }
+            @media screen and (max-width: @prod_archive_1_col_768 ) {
+                width: 100%;
+            }
+            .lb-content{
+                // lightbox content (to be cloned and prepended to body)
+                display: none !important;
+            }
+
+            // ************************************************
+            //            Variations (Item Top)
+            // ************************************************
+            // Tires
+            &.type-tire .flex-item-inner .pi-top{
+
+            }
+            // Rims
+            &.type-rim .flex-item-inner .pi-top{
+                // rims are a bit taller due to titles and spec tables so remove a bit of space
+                .img-wrap{
+                    margin-top: -5px;
+                    margin-bottom: -5px;
+                }
+            }
+            // Tires Or Rims (Not Grouped)
+            &.type-tire.not-grouped-by-model .flex-item-inner .pi-top, &.type-rim.not-grouped-by-model .flex-item-inner .pi-top{
+            }
+            // Packages
+            &.type-package .flex-item-inner .pi-top{
+                padding-top: 35px;
+                padding-bottom: 35px;
+            }
+            // Tires - Staggered
+            &.type-rim.item-staggered .flex-item-inner .pi-top{
+
+            }
+            // Rims - Staggered
+            &.type-rim.item-staggered .flex-item-inner .pi-top{
+
+            }
+            // Staggered General (except Packages)
+            &.type-tire.item-staggered .flex-item-inner .pi-top, &.type-rim.item-staggered .flex-item-inner .pi-top{
+                padding-left: 28px;
+                padding-right: 28px;
+                @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                    padding: 22px 18px 14px 18px;
+                }
+                @media screen and (max-width: @prod_archive_stack_filters_1024 ) and (min-width: 641px){
+                    padding: 30px 28px 18px 28px;
+                }
+            }
+            // Grouped by Model (Tires/Rims)
+            &.item-grouped .flex-item-inner .pi-top{
+                .img-wrap{
+                    .img-wrap-2{
+                    }
+                }
+            }
+            // Grouped Tires
+            &.type-tire.item-grouped .flex-item-inner .pi-top{
+                padding-top: 35px;
+                padding-bottom: 35px;
+                .img-wrap{
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                .tire-type-class{
+                    margin-bottom: 3px;
+                }
+                @media screen and (max-width: @prod_archive_header_breakpoint_1650 ) {
+                    .img-wrap{
+                        margin-top: 12px;
+                        margin-bottom: 12px;
+                    }
+                    .tire-type-class{
+                        margin-bottom: -6px;
+                    }
+                }
+            }
+            // Grouped Rims
+            &.type-rim.item-grouped .flex-item-inner .pi-top{
+                padding-top: 35px;
+                padding-bottom: 0;
+                .img-wrap{
+                    padding-top: 63px;
+                    padding-bottom: 65px;
+                    .img-wrap-2{
+                        height: 226px;
+                        max-width: 226px;
+                    }
+                }
+                @media screen and (max-width: @prod_archive_header_breakpoint_1650 ) {
+                    .img-wrap{
+                        padding-top: 54px;
+                        padding-bottom: 57px;
+                        .img-wrap-2{
+                            height: 190px;
+                            max-width: 190px;
+                        }
+                    }
+                }
+            }
+
+            // ************************************************
+            //                  General Styles
+            // ************************************************
+            .flex-item-inner{
+                position: relative;
+                width: 100%;
+                background: white;
+                .box-shadow-1();
+                // must be same as pi button min height
+                // to find the other css,... search for "asdkjhasdkhjgkasjdhasd"
+                padding-bottom: 62px;
+                @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                    padding-bottom: 56px;
+                }
+                @media screen and (max-width: 380px){
+                    padding-bottom: 50px;
+                }
+                // ** Item Top
+                .pi-top{
+                    padding: 35px 35px 23px 35px;
+                    @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                        padding: 28px 28px 16px 28px;
+                    }
+                    @media screen and (max-width: @prod_archive_stack_filters_1024 ) {
+                        padding: 30px 30px 18px 30px;
+                    }
+                    @media screen and (max-width: 640px){
+                        padding: 30px 27px 18px 27px;
+                    }
+                    @media screen and (max-width: 400px){
+                        padding-left: 18px;
+                        padding-right: 18px;
+                    }
+                    .product-titles{
+                        margin-bottom: 0;
+                        > *{
+                            margin-bottom: 8px;
+                            &:last-child{
+                                margin-bottom: 0;
+                            }
+                        }
+                        @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                            > *{
+                                margin-bottom: 6px;
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                    .compare-products-button-wrapper{
+                        margin-top: 10px;
+                        .text{
+
+                        }
+                        @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                            margin-top: 6px;
+                        }
+                    }
+                    .img-wrap{
+                        // use padding, then variations can use +/- margins to add or remove a little bit
+                        padding: 30px 0;
+                        // posr necessary for packages page.
+                        position: relative;
+                        .img-wrap-2{
+                            position: relative;
+                            z-index: 10;
+                            height: 220px;
+                            width: 100%;
+                            max-width: 220px;
+                            margin-left: auto;
+                            margin-right: auto;
+                            .flex-container(row, nowrap);
+                            .justify-content(center);
+                            .align-items(stretch);
+                            // maybe anchor tag
+                            > .background-image{
+                                position: relative;
+                                display: block;
+                                background-color: transparent;
+                                width: 100%;
+                                &.has-lightbox{
+                                    &::after{
+                                        z-index: 1;
+                                        content: '';
+                                        .posa();
+                                        opacity: 0;
+                                        visibility: hidden;
+                                        .trans(all .3s);
+                                        background: black;
+                                    }
+                                    .see-more{
+                                        position: absolute;
+                                        z-index: 10;
+                                        opacity: 0;
+                                        visibility: hidden;
+                                        .trans(all .3s);
+                                        bottom: 5px;
+                                        right: 5px;
+                                        .fa{
+                                            color: @red;
+                                        }
+                                    }
+                                    &:hover{
+                                        &::after{
+                                            visibility: visible;
+                                            opacity: .1;
+                                        }
+                                        .see-more{
+                                            visibility: visible;
+                                            opacity: 1;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                            padding: 20px 0;
+                            .img-wrap-2{
+                                height: 170px;
+                                max-width: 170px;
+                            }
+                        }
+                        // for packages page
+                        .img-link{
+                            display: block;
+                            position: absolute;
+                            top: 5%;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            z-index: 9999;
+                            cursor: pointer;
+                        }
+                        // for packages page
+                        .img-secondary{
+                            position: absolute;
+                            z-index: 20;
+                            top: 55%;
+                            left: 10%;
+                            .translateX(-50%);
+                            width: 45%; // parent is square .. and so is child.. therefore width also specifies height
+                            border-radius: 500px;
+                            padding: 14px;
+                            .box-shadow-1();
+                            background-color: white;
+                            .icon{
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                background: @red;
+                                width: 30px;
+                                height: 30px;
+                                .flex-container(column);
+                                .justify-content(center);
+                                .align-items(center);
+                                border-radius: 99px;
+                                text-align: center;
+                                .icon-2{
+                                    width: 100%;
+                                    .flex-container(row, nowrap);
+                                    .justify-content(center);
+                                    i{
+                                        line-height: 14px;
+                                        font-size: 14px;
+                                        text-align: center;
+                                        display: block;
+                                        color: white;
+                                    }
+                                }
+                            }
+                            .bg-secondary{
+                                padding-bottom: 100%;
+                                border-radius: 500px;
+                                background-color: transparent;
+                                width: 100%;
+                            }
+                        }
+                    }
+                    // tires only
+                    .tire-type-class{
+                        margin-bottom: 20px;
+                    }
+                    // packages only
+                    .pkg-details{
+                        padding-top: 8px;
+                    }
+                }
+                // ** Item Bottom
+                .pi-bottom{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    .pi-buttons{
+                        .flex-container(row, wrap);
+                        .align-items(stretch);
+                        .justify-content(flex-start);
+                        &.count-1{
+                            .pi-button{
+                                width: 100%;
+                            }
+                        }
+                        // 2 + buttons, width 50% (should only ever be 1 or 2 buttons however)
+                        .pi-button{
+                            width: 50%;
+                            .flex-container(row, nowrap);
+                            .align-items(stretch);
+                            a, span, button{
+                                .flex-container(column);
+                                .justify-content(center);
+                                .align-items(center);
+                                width: 100%;
+                                text-align: center;
+                                .font-15-uppercase();
+                                border-radius: 0;
+                                margin: 0;
+                                outline: none;
+                                border: none;
+                                // must be same as .flex-item-inner padding bottom
+                                // to find the other css,... search for "asdkjhasdkhjgkasjdhasd"
+                                min-height: 62px;
+                                @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                                    .font(13px, 4px);
+                                    min-height: 56px;
+                                }
+                                @media screen and (max-width: 380px){
+                                    .font(11px, 4px);
+                                    min-height: 50px;
+                                    .letter-spacing-medium();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//               Spec Table(s)
+// ************************************************
+
+// product(s) selected spec tables, 2 tables stack
+.products-selected{
+    .spec-tables.spec-tables{
+        display: block;
+        &.count-2{
+            .spec-table.spec-table{
+                padding: 0;
+                width: 100%;
+            }
+        }
+        .spec-table{
+            margin-bottom: 20px;
+            &:last-child{
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+
+// justify content center for multiple tables in package popups
+.package-popup{
+    .spec-tables{
+        &.count-2{
+            .spec-table{
+                width: 50%;
+                padding-left: 15px;
+                padding-right: 15px;
+                @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+                .table-wrap{
+                    width: auto;
+                    max-width: none;
+                }
+            }
+        }
+    }
+}
+
+// 2 tables beside each other (as in product loop and package popup lightbox)
+.spec-tables{
+    // Count 2
+    &.count-2{
+        .flex-center( start );
+        .spec-table{
+            width: 50%;
+            &:nth-child(1){
+                padding-right: 15px;
+            }
+            &:nth-child(2){
+                padding-left: 15px;
+            }
+            .table-wrap{
+                .st-title{
+
+                }
+                table{
+                    tr{
+                        // smaller font size
+                        th, td{
+                            .font(10px, 3px);
+                            @media screen and (max-width: 1500px){
+                                .font(9px, 3px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.count-1{
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    // Spec Table General Styles
+    .spec-table{
+        .flex-center( start, wrap );
+        // left says "winter approved:"
+        &.type-rim.count-1 table tr.row-type th{
+            min-width: 159px;
+        }
+        &.type-rim.count-1 table tr.row-bolt-pattern th{
+            min-width: 130px;
+        }
+        // type rim
+        &.type-rim{
+        }
+        // type tire
+        &.type-tire{
+        }
+        .table-wrap{
+            .st-title{
+                width: 100%;
+                margin-bottom: 10px;
+                .font-15-upper();
+                color: @textGrey;
+            }
+            table{
+                tr{
+                    min-width: 70px;
+                    text-align: left;
+                    &.row-bolt-pattern{
+                        th{
+                            min-width: 135px;
+                        }
+                    }
+                    &.row-price{
+                        td{
+                            color: @red;
+                        }
+                    }
+                    th, td{
+                        padding-top: 3px;
+                        padding-bottom: 3px;
+                        .font-12-upper-small();
+                        a{
+                            color: inherit;
+                            &:hover{
+                                color: @red;
+                            }
+                        }
+                        *{
+                            .inherit();
+                        }
+                        .icon{
+                            display: inline-block;
+                            vertical-align: middle;
+                            height: 1.8em;
+                            i, svg{
+                                height: 100%;
+                                width: auto;
+                            }
+                        }
+                        @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                            padding-top: 1px;
+                            padding-bottom: 1px;
+                            .font(10px, 3px);
+                        }
+                    }
+                    th{
+                        color: @textGrey;
+                        padding-right: 15px;
+                    }
+                    td{
+                        color: @textLightGrey;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// spec table (single) general styles
+.spec-table{
+
+}
+
+// ************************************************
+//               Spec Tables in Loop
+// ************************************************
+
+// grouped tire queries.. add space
+.tires-page.context-by_type, .tires-page.context-by_brand{
+    .product-loop{
+        .flex-item-outer{
+
+        }
+    }
+}
+
+// ************************************************
+//                  Pagination
+// ************************************************
+
+.gp-pagination{
+    .flex-container(row, nowrap);
+    .justify-content(flex-start);
+    .align-items(center);
+    button{
+        .flex-container(column);
+        .justify-content(center);
+        cursor: pointer;
+        margin: 0 6px;
+        height: 30px;
+        color: @textBlack;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .15em;
+        > *{
+            .inherit();
+        }
+        &.page-prev{
+            .btn-inner i{
+                margin-right: 6px;
+            }
+        }
+        &.page-next{
+            .btn-inner i{
+                margin-left: 6px;
+            }
+        }
+        &.is-current{
+            color: white;
+            .btn-inner{
+                background: @red;
+            }
+        }
+        &.page-number{
+
+        }
+        .btn-inner{
+            .flex-container(row, nowrap);
+            .align-items(center);
+            .justify-content(center);
+            min-width: 30px;
+            min-height: 30px;
+            padding: 0 7px 0 9px;
+            border-radius: 99px;
+            .trans(all .3s);
+            .text{
+                .inherit();
+            }
+        }
+        &:hover{
+            color: white;
+            .btn-inner{
+                background: @red;
+            }
+        }
+        @media screen and (max-width: @prod_archive_header_breakpoint_1650 ) {
+            .font(13px, 4px );
+            margin: 0 4px;
+            .btn-inner{
+                padding: 0 6px 0 8px;
+                min-width: 28px;
+                min-height: 28px;
+            }
+        }
+        @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+
+        }
+    }
+}
+
+// ************************************************
+//               Buttons in loop
+// ************************************************
+.pi-button{
+    &.color-red{
+        a, span, input, button{
+            cursor: pointer;
+            background: @red;
+            color: white;
+        }
+    }
+    &.color-black{
+        a, span, input, button{
+            cursor: pointer;
+            background: black;
+            color: white;
+        }
+    }
+}
+
+// ************************************************
+//                 No Results
+// ************************************************
+.products-page{
+    .product-loop-wrapper{
+        .product-loop{
+            &.results-none{
+                margin: 20px 0;
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+

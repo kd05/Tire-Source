@@ -1,0 +1,47 @@
+
+// ************************************************
+//   Table Style 1 (order history, admin etc.)
+// ************************************************
+
+.table-wrap.table-style-1{
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 50px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+    table{
+        border-collapse: collapse;
+        min-width: 500px;
+        th, td{
+            border: none;
+            padding: 17px 13px;
+            .font(14px, 4px);
+            font-weight: 700;
+            .letter-spacing-small();
+            text-align: center;
+            @media screen and (max-width: 640px){
+                padding: 15px 12px;
+                .font(13px, 4px);
+            }
+            @media screen and (max-width: 430px){
+                padding: 14px 10px;
+                .font(12px, 4px);
+            }
+        }
+        th{
+            background: @offBlack;
+            color: white;
+        }
+        tr{
+            border: 1px solid darken( @offWhite, 5% );
+            &:nth-child(odd){
+                background: @offWhite;
+            }
+        }
+        td{
+            color: @textLightGrey;
+        }
+    }
+}
+

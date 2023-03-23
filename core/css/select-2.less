@@ -1,0 +1,225 @@
+
+
+// ************************************************
+//               Select 2 styles
+// ************************************************
+
+ul.select2-choices {
+    padding-right: 30px !important;
+}
+
+// use our own arrow. partially to make it the same as other places on the site
+// but also mainly because multi selects just dont show arrows and we want them
+.select2-selection__arrow{
+    display: none !important;
+}
+
+.select2-container .select2-selection--multiple{
+    cursor: pointer;
+}
+
+// <span> or <ul> apparently
+.select2-selection__rendered{
+    cursor: pointer;
+    &::after{
+        content: '\f0d7';
+        .font-awesome-fa();
+        .flex-container(column);
+        .justify-content(center);
+        .align-items(center);
+        position: absolute;
+        top: 50%;
+        .translateY(-50%);
+        right: 0;
+        width: 40px;
+        height: 100%;
+        text-align: center;
+        color: @red;
+    }
+}
+
+ul.select2-choices:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid #333;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+// select 2 dropdown
+body{
+    form{
+        .item-wrap{
+            .select-2-wrapper{
+                width: 100%;
+            }
+        }
+    }
+    .select-2-wrapper{
+        // this should get overriden most of the time I think
+        width: 230px;
+    }
+    .select2-container{
+        width: 100% !important;
+        .select2-dropdown{
+            .select2-results{
+                .select2-results__options{
+                    max-height: 250px;
+                    .select2-results__option.select2-results__option--highlighted, .select2-results__option[aria-selected="true"]{
+                        background: @red;
+                        color: white;
+                    }
+                    .select2-results__option{
+                        padding: 5px 15px;
+                        color: @textBlack;
+                        font-weight: 700;
+                        font-size: 14px;
+                        line-height: 17px;
+                        background: white;
+                        &[aria-disabled="true"]{
+                            // display: none !important;
+                            background: darken( @offWhite, 4% );
+                            color: @red;
+                            text-decoration: line-through;
+                            opacity: 1;
+                            cursor: not-allowed;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .select2-container--open{
+        // header, fancybox, select2, and gp-lightbox all have to respect each others z-indexes
+        z-index: 25000;
+    }
+}
+
+// un capitalize the substitution sizes dropdown menu cuz + 1 INCH just looks way too large,
+// and all other letters tend to be caps anyways ie. 22545R17
+.sub-size-select{
+    .select-2-wrapper{
+        select, .select2-selection__rendered{
+            text-transform: none !important;  
+        }
+    }
+}
+
+// make <select> and select2 look the same within a container
+.select-2-wrapper{
+    position: relative;
+    // On White
+    &.on-white{
+        select, .select2-container{
+            .box-shadow-1();
+        }
+    }
+    // Height Sm
+    &.height-sm{
+        select, .select2-container .selection .select2-selection .select2-selection__rendered{
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+    }
+    select{
+        display: block;
+        width: 100%;
+        .select-font();
+        padding: 15px 15px;
+        background: white;
+        border: 1px solid transparent;
+        -webkit-appearance: none;
+        outline: none;
+    }
+    // select2, you are on crack.
+    // the placeholder which i have specified is actually the search field, and
+    // you also only show it after a user selects something and then de-selects everything
+    // why in the HELL would we not just want to have the placeholder always showing, so
+    // that a multi select can look the same as a regular select when the page loads
+    // without me having to pull my hair out.
+    .select2-selection--multiple{
+        .select2-selection__choice{
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+        .select2-search__field{
+            width: 100% !important;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            .select-font();
+            color: @textBlack;
+            .placeholder({
+                color: @textBlack;
+                .select-font();
+            });
+        }
+    }
+    &.updated{
+        select, .select2-container .selection .select2-selection .select2-selection__rendered{
+            border: 1px solid @textGrey;
+        }
+    }
+    &.empty{
+        select, .select2-container .selection .select2-selection .select2-selection__rendered{
+            color: @textLightGrey2;
+            background: darken( white, 5% );
+            cursor: not-allowed;
+        }
+    }
+    &.not-empty{
+        select, .select2-container .selection .select2-selection .select2-selection__rendered{
+            color: @textBlack;
+        }
+    }
+    .select2-container{
+        display: block;
+        width: 100%;
+        .selection{
+            .select2-selection{
+                display: block;
+                height: auto;
+                border: none;
+                // Multi Select
+                &.select2-selection--multiple{
+                    .select2-selection__rendered{
+                        // remove 2px top and bottom padding to make up for margin
+                        padding-top: 13px;
+                        padding-bottom: 13px;
+                    }
+                }
+                .select2-selection__rendered{
+                    display: block;
+                    width: 100%;
+                    .select-font();
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    padding-left: 15px;
+                    padding-right: 45px;
+                    background: white;
+                    border: 1px solid transparent;
+                    outline: none;
+                    .trans(all .3s);
+                }
+                .select2-selection__arrow{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 100%;
+                    .flex-container(column);
+                    width: 40px;
+                    text-align: center;
+                    > *{
+                        border-color: @red transparent transparent transparent;
+                    }
+                }
+            }
+        }
+        .dropdown-wrapper{
+
+        }
+    }
+
+}

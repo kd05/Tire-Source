@@ -1,0 +1,331 @@
+// ************************************************
+//         Cart Summary (on checkout page)
+// ************************************************
+
+.cart-quick-summary{
+    // make the same as .cart-receipt
+    width: 100%;
+    max-width: 296px;
+    margin-left: auto;
+    margin-right: auto;
+    .cq-package{
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid @textLightGrey2;
+        &:last-child{
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        &.exists{
+        }
+        &.not-really{
+
+        }
+        .cq-item{
+            width: 100%;
+            .flex-container(row, nowrap);
+            .align-items(center);
+            .justify-content(space-between);
+            .left{
+                text-align: left;
+                .calc(width; "100% - 110px");
+                padding-right: 25px;
+                p{
+                    .font-13-lower();
+                    font-weight: 700;
+                    color: @textGrey;
+                }
+            }
+            .right{
+                text-align: right;
+                width: 110px;
+                p{
+                    .font-13-lower();
+                    font-weight: 700;
+                    color: @red;
+                }
+            }
+            margin-bottom: 8px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.cart-section.cart-summary{
+    .cart-box{
+
+    }
+}
+
+// have to add some extra space when the register checkbox and password inputs are not showing
+body.logged-in{
+    .cart-section.billing{
+        .form-items{
+            // padding-bottom: 15px;
+        }
+    }
+}
+
+// ************************************************
+//         horizontal spacing adjustments
+// not going to lie, this can be a little complicated
+// ************************************************
+.cart-section{
+    &.shipping, &.payment, &.billing{
+        .cart-box{
+            padding-top: 35px;
+            padding-bottom: 35px;
+            .form-items{
+                margin-bottom: -22px;
+                .item-wrap, .submit-response{
+                    margin-bottom: 22px;
+                    // this is what we really need to fix, last child is no good for
+                    // items that are width 50%
+                    &:last-child{
+                        margin-bottom: 22px;
+                    }
+                    &.item-shipping_is_billing{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            // this is a messy fix.. we need the form items div twice, once inside
+            // of itself, and by default its width is 100% + 30px..
+            .shipping-sub-section.form-items .form-items{
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+        }
+    }
+}
+.cart-section.shipping, .cart-section.payment{
+    .cart-box{
+    }
+}
+
+// ************************************************
+//              Shipping
+// ************************************************
+.cart-section.shipping{
+
+    .shipping-sub-section{
+        padding-bottom: 32px;
+        margin-bottom: 32px;
+        border-bottom: 1px solid @textLightGrey2;
+        &:last-child{
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .item-shipping_is_billing{
+            // margin-top: 8px;
+        }
+        .body{
+            // padding: 20px 0;
+        }
+        &.active{
+            .body{
+                display: block !important;
+            }
+        }
+        &.not-active{
+            .body{
+                display: none !important;
+            }
+        }
+        &.sub-section-pickup{
+            .body{
+                padding: 30px 15px 0 15px;
+                .font(14, 6px);
+                font-weight: 400;
+                color: @textBlack;
+                > *{
+                    .inherit();
+                    margin-bottom: 20px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .shipping-items{
+            padding-top: 32px;
+            // padding-bottom: 10px;
+            &.hidden{
+                display: none !important;
+            }
+        }
+    }
+    //.shipping-sub-section-separator{
+    //    position: relative;
+    //    padding: 10px 0;
+    //    &::before{
+    //        content: '';
+    //        display: block;
+    //        width: 100%;
+    //        background: @textLightGrey;
+    //        height: 1px;
+    //    }
+    //}
+}
+
+// ************************************************
+//               Form Items Split..
+// ************************************************
+form.checkout{
+    .cart-box{
+        .open-lightbox-wrapper{
+            .flex-right();
+            margin-bottom: 8px;
+            button{
+                .font-13-upper();
+                color: @red;
+            }
+        }
+    }
+    .form-items{
+        .flex-container(row, wrap);
+        .justify-content(flex-start);
+        .align-items(flex-start);
+        .calc(width; "100% + 30px");
+        max-width: none;
+        margin-left: -15px;
+        margin-right: -15px;
+        @media screen and (max-width: 700px){
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+        .submit-response{
+            width: 100%;
+            .box-shadow-1();
+            padding: 20px;
+            margin-bottom: 20px;
+            &.error{
+                border-left: 5px solid @red;
+            }
+            &.success{
+                border-left: 5px solid @green;
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+            p{
+                .font(14px, 4px);
+                color: @textGrey;
+                font-weight: 600;
+                a{
+                    color: @red;
+                }
+            }
+            > *{
+                margin-bottom: 8px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .item-wrap{
+            width: 50%;
+            padding: 0 15px;
+            @media screen and (max-width: 700px){
+                width: 100%;
+                padding: 0;
+            }
+            &.item-ship_to_address{
+                width: 100%;
+                margin-bottom: 0;
+            }
+            &.item-ship_to_pickup{
+                width: 100%;
+                margin-bottom: 0;
+            }
+            &.item-shipping_is_billing{
+                width: 100%;
+                margin-bottom: 0;
+            }
+            &.item-card{
+                width: 100%;
+            }
+            &.item-submit{
+                width: 100%;
+            }
+            &.item-card_month{
+                width: 33.33333%;
+                @media screen and (max-width: 700px){
+                    width: 100%;
+                }
+            }
+            &.item-register{
+                width: 100%;
+                margin-top: 10px;
+                .item-inner{
+                    padding-top: 26px;
+                    border-top: 1px solid @tBorder;
+                }
+            }
+            &.item-card_year{
+                width: 33.33333%;
+                @media screen and (max-width: 700px){
+                    width: 100%;
+                }
+            }
+            &.item-cvv{
+                width: 33.33333%;
+                @media screen and (max-width: 700px){
+                    width: 100%;
+                }
+            }
+            &.item-mailing_list{
+                width: 100%;
+            }
+            // javascript reveals
+            &.item-heard_about_other{
+                display: none;
+            }
+            //&.item-heard_about{
+            //    width: 100%;
+            //}
+            &.item-accept_terms{
+                padding-top: 5px;
+                width: 100%;
+            }
+            &.item-confirm_total{
+                width: 100%;
+            }
+            &.item-submit{
+                padding-top: 5px;
+            }
+            // inner..
+            .item-inner{
+
+            }
+        }
+    }
+}
+
+// ************************************************
+//           Cart Boxes (checkout page)
+//        see cart.less for generic styles
+// ************************************************
+.page-checkout{
+    .cart-container{
+        max-width: 1380px;
+    }
+    .cart-section{
+        .cart-box{
+            .cart-box-2{
+                width: 100%;
+                max-width: 770px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}

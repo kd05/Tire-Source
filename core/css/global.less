@@ -1,0 +1,478 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,small,
+strike, strong, sub, sup, tt, var,
+b, u, i, center, hr, input, textarea,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, main,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: @textBlack;
+    .montserrat();
+}
+
+button, input, select{
+    .montserrat();
+}
+
+// does not look good
+//body::before{
+//    content: '';
+//    display: block;
+//    position: fixed;
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 100%;
+//    z-index: -1;
+//    visibility: hidden;
+//    opacity: 0;
+//    background: black;
+//    .trans(all .3s);
+//}
+//body.state-loading::before{
+//    visibility: visible;
+//    opacity: .25;
+//    z-index: 999999;
+//}
+
+body.state-loading{
+    cursor: wait !important;
+    *{
+        cursor: wait !important;
+    }
+}
+
+select:focus{
+    outline: 1px solid blue; // temporary maybe
+}
+
+main{
+    display: block;
+}
+
+.fa{
+    font-size: inherit;
+    color: inherit;
+}
+
+a{
+    text-decoration: none;
+}
+
+.uppercase(){
+    text-transform: uppercase;
+    letter-spacing: .22em;
+    font-weight: 600;
+}
+
+.header-font(){
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+
+// MORONS at font awesome. this doesn't work if you dont specify correct font weight.
+// Tell me, whats the font-weight weight of \f0d7?
+.font-awesome-fa(){
+    font-family: 'Font Awesome 5 Free';
+    /* >> Weight of the font (mandatory)
+               - 400 for Regular and Brands symbols;
+               - 900 for Solid symbols. */
+    font-weight: 900;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+// fa-solid
+.font-awesome-fas(){
+    font-family: 'Font Awesome 5 Free';
+    /* >> Weight of the font (mandatory)
+               - 400 for Regular and Brands symbols;
+               - 900 for Solid symbols. */
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+.montserrat(){
+    font-family: 'Montserrat', sans-serif;
+}
+
+// ************************************************
+//                 Container
+// ************************************************
+
+.container-width(){
+    width: 1200px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-padding(){
+    padding-left: 50px;
+    padding-right: 50px;
+    @media screen and (max-width: 768px){
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    @media screen and (max-width: 500px){
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    @media screen and (max-width: 430px){
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+}
+
+.wide-container-width(){
+    width: 95%;
+    max-width: 1788px;
+    margin-left: auto;
+    margin-right: auto;
+    @media screen and (max-width: @header_breakpoint_full){
+        width: 100%;
+    }
+}
+
+.wide-container-padding(){
+    .container-padding();
+}
+
+.wide-container(){
+    position: relative;
+    .wide-container-width();
+    .wide-container-padding();
+    &.no-padding{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @media screen and (max-width: @header_breakpoint_full){
+
+    }
+}
+
+.wide-container{
+    .wide-container();
+}
+
+.container{
+    position: relative;
+    .container-width();
+    .container-padding();
+    &.no-padding{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// ************************************************
+//                     Buttons
+// ************************************************
+
+.buttons.align-center{
+    .flex-container(row, nowrap);
+    .align-items(stretch);
+    .justify-content(center);
+    .button-1{
+
+    }
+}
+
+.button-1, .pi-button{
+    a, span, input, button{
+        .main{
+            .inherit();
+            display: block;
+        }
+        .extra{
+            margin-top: 3px;
+            font-size: .75em;
+            line-height: 1em;
+            letter-spacing: inherit;
+            text-transform: inherit;
+            font-weight: inherit;
+            color: inherit;
+            display: block;
+        }
+    }
+}
+
+
+.button-stuff(){
+    cursor: pointer;
+    outline: none;
+    border: none;
+    .font(14px, 3px);
+    font-weight: 700;
+    .letter-spacing-large();
+    text-transform: uppercase;
+    display: inline-block;
+    text-align: center;
+    min-width: 210px;
+    padding: 19px 32px 18px 32px;
+    @media screen and (max-width: 500px){
+        padding: 18px 28px;
+        .font(13px, 3px);
+    }
+    @media screen and (max-width: 430px){
+        min-width: 195px;
+        padding: 17px 25px;
+        .font(12px, 3px);
+    }
+    @media screen and (max-width: 400px){
+        min-width: 180px;
+    }
+}
+
+.button-1{
+    &.align-center{
+        text-align: center;
+    }
+    &.align-right{
+        text-align: right;
+    }
+    &.align-left{
+        text-align: left;
+    }
+    &.color-red{
+        a, span, input, button{
+            color: white;
+            background: @red;
+        }
+    }
+    &.color-black{
+        a, span, input, button{
+            color: white;
+            background: @textBlack;
+        }
+    }
+    button{
+
+    }
+    a, span, input, button{
+        color: white;
+        background: @red;
+        .button-stuff();
+        &.css-reset{
+            .button-stuff();
+        }
+    }
+}
+
+.line-through{
+    text-decoration: line-through;
+}
+
+button.default-cursor{
+    cursor: default !important;
+}
+
+button.disabled{
+    cursor: not-allowed !important;
+}
+
+.tt-upper-spaced(){
+    text-transform: uppercase;
+    letter-spacing: .22em;
+}
+
+.tt-upper(){
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.tt-upper.spaced{
+    .tt-upper-spaced();
+}
+
+.tt-upper{
+    .tt-upper();
+}
+
+.bg-cover(){
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.grey-bar{
+    .wide-container{
+        .wide-container-inner{
+            position: relative;
+            min-height: 58px;
+            background: @offWhite;
+            @media screen and (max-width: 1360px){
+                min-height: 53px;
+            }
+            @media screen and (max-width: 768px){
+            }
+            @media screen and (max-width: 500px){
+                min-height: 50px;
+            }
+        }
+        @media screen and (max-width: @header_breakpoint_full ) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+a, span, input, button{
+    &.ajax-add-to-cart{
+        cursor: pointer;
+        // Do not do this: (it breaks <button>'s inside div.button-1)
+        // .button-css-reset();
+    }
+}
+
+a.disabled{
+    cursor: not-allowed;
+}
+
+select option:disabled {
+    color: @red;
+    font-weight: bold;
+}
+
+span.inherit{
+    .inherit();
+}
+
+// ************************************************
+//               Admin Tables
+// ************************************************
+@table_blue: #2772ba;
+table.gp-data-table{
+    pre{
+        // use this on the cron job post type which is for debugging only
+        white-space: pre-wrap;
+    }
+    margin: 1.5em 0;
+    border-collapse: collapse;
+    .col.align-center{
+        text-align: center;
+    }
+    th, td{
+        border: 1px solid grey;
+    }
+    tr.break-row{
+        background: @table_blue;
+        color: white;
+        height: 20px;
+        th{
+            color: white;
+            a{
+                color: white;
+                font-weight: 400;
+            }
+        }
+    }
+    tr.row-highlight{
+        background: #e1e1e1;
+        &.inactive{
+            border: 1px solid @table_blue;
+        }
+    }
+    th, td{
+        padding: 5px 10px;
+    }
+    &.reduced-spacing{
+        th, td{
+            padding: 3px 5px;
+        }
+    }
+    tr{
+
+    }
+    th{
+
+    }
+    td{
+
+    }
+}
+
+button.css-reset{
+    cursor: pointer;
+}
+
+// ************************************************
+//           Cart Count Indicator
+// ************************************************
+
+.cart-count-indicator{
+    margin-left: 6px;
+    &.empty{
+        display: none;
+    }
+}
+
+// ************************************************
+//               for spans and stuff...
+// ************************************************
+.inherit{
+    .inherit();
+}
+
+// ************************************************
+//              Debug/Dev Alert
+// ************************************************
+.dev-alert{
+    margin: 5px 0;
+    .trigger{
+        padding: 5px;
+        background: @offWhite;
+    }
+    .alert-content{
+        padding: 5px;
+    }
+}
+
+// these are in checkout form and probably not elsewhere..
+.cc-icons{
+    width: 100%;
+    .cc-icons-2{
+        width: 100%;
+        .flex-left( center, wrap );
+        margin-bottom: -8px;
+        margin-right: -8px;
+        .calc(width; "100% + 8px");
+        .cc-item{
+            margin-right: 8px;
+            margin-bottom: 8px;
+            img{
+                display: block;
+                height: 32px;
+                width: auto;
+            }
+        }
+    }
+}
+
+// position top right above card number (just doesn't look good anywhere else ...)
+#checkout, .form-style-1{
+    .cc-icons{
+        margin-top: -10px;
+        margin-bottom: -25px;
+        .cc-icons-2{
+            .flex-right( center, wrap );
+        }
+    }
+}

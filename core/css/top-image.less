@@ -1,0 +1,226 @@
+
+.top-image-vehicle-lookup{
+    width: 460px;
+    .vert-grad( @red, black, 100, 100 );
+    padding: 45px 50px 40px 50px;
+    @media screen and (max-width: 1100px){
+        width: 420px;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+    .heading{
+        text-align: center;
+        margin-bottom: 35px;
+        p{
+            .font(20px, 8px);
+            color: white;
+        }
+        .size-lg{
+            .font(32px, 8px);
+        }
+        .by-vehicle, .by-size{
+            cursor: pointer;
+            color: white;
+            &::before{
+                content: '[';
+            }
+            &::after{
+                content: ']';
+            }
+            &.active{
+                // text-decoration: underline;
+                cursor: default;
+                &::before, &::after{
+                    display: none;
+                }
+            }
+        }
+    }
+    form.tire-size-select{
+        // hidden to start. JS can show it.
+        display: none;
+    }
+    form.vehicle-lookup{
+        .form-items{
+            .item-wrap{
+                .margin-bottom-except-last(20px);
+                &.item-submit{
+                    padding-top: 14px;
+                }
+            }
+        }
+    }
+}
+
+// ie. has the vehicle look form on the right
+.top-image.two-cols{
+    @media screen and (max-width: 900px){
+        position: relative;
+        display: block;
+        & + .grey-bar{
+            display: none;
+        }
+        .background-image{
+            &::after{
+                content: '';
+                position: absolute;
+                display: block;
+                width: 100%;
+                top: 100%;
+                left: 0;
+                height: 50px;
+                background: @offWhite;
+            }
+        }
+        .background-image, .overlay{
+            .calc(height; "100% - 300px");
+        }
+        .y-mid{
+            position: relative;
+            display: block;
+            .x-mid{
+                .flex-center(flex-start, wrap);
+                min-height: 0;
+                padding-left: 0;
+                .content{
+                    .col-flex-center();
+                    width: 90%;
+                    min-height: 250px;
+                    padding: 75px 0;
+                    text-align: center;
+                }
+                .right-col{
+                    padding: 0 20px;
+                    width: 100%;
+                    .flex-center(flex-start);
+                }
+            }
+        }
+    }
+}
+
+.top-image{
+    position: relative;
+    .flex-left(stretch);
+    width: 100%;
+    .background-image{
+        z-index: 1;
+    }
+    .overlay{
+        .posa();
+        z-index: 5;
+        background: black;
+        opacity: 0;
+    }
+    .y-mid{
+        position: relative;
+        z-index: 50;
+        width: 100%;
+        .flex-container(column);
+        .justify-content(center);
+        min-height: 421px;
+        @media screen and (max-width: 1650px){
+            min-height: 400px;
+        }
+        @media screen and (max-width: 1440px){
+            min-height: 380px;
+        }
+        @media screen and (max-width: 980px){
+            min-height: 350px;
+        }
+        @media screen and (max-width: 600px){
+            min-height: 325px;
+        }
+        @media screen and (max-width: 430px){
+            min-height: 280px;
+        }
+        .x-mid{
+            .header-and-top-image-horizontal-spacing();
+            // for .two-cols
+            .flex-between(center);
+            @media screen and (max-width: 1600px){
+                width: 90%;
+                padding-left: 4%;
+            }
+            @media screen and (max-width: 1400px){
+                width: 92%;
+                padding-left: 2%;
+            }
+            @media screen and (max-width: 1100px){
+                width: 100%;
+                padding-left: 5%;
+            }
+            .right-col{
+                // padding: 60px 0;
+                padding-left: 50px;
+                @media screen and (max-width: 1100px){
+                    padding: 15px;
+                }
+            }
+            .content{
+                width: 100%;
+                max-width: 980px;
+                padding: 80px 0;
+                > *{
+                    color: white;
+                    margin-bottom: 10px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+                p{
+                    // dont touch font size or it screws up blog tagline thing
+                    font-weight: 400;
+                    a{
+                        color: inherit;
+                        text-decoration: underline;
+                    }
+                }
+                .tagline{
+                    color: white;
+                    font-weight: 600;
+                    .letter-spacing-small();
+                    text-transform: uppercase;
+                    // roughly .like-h1-lg maybe
+                    .font(28px, 10px);
+                    @media screen and (max-width: 768px){
+                        .font(24px, 10px);
+                    }
+                    @media screen and (max-width: 430px){
+                        .font(20px, 10px);
+                    }
+                }
+                .top-image-title{
+                    font-weight: 300;
+                    .letter-spacing-large();
+                    // .like-h1-xxl to start, same as homepage, but we need it to shrink not so early
+                    .font(60px, 10px);
+                    @media screen and (max-width: 1440px){
+                        .font(56px, 8px);
+                    }
+                    @media screen and (max-width: 1200px){
+                        .font(52px, 8px);
+                    }
+                    @media screen and (max-width: 640px){
+                        .font(48px, 8px);
+                    }
+                    @media screen and (max-width: 500px){
+                        .font(42px, 8px);
+                    }
+                    @media screen and (max-width: 430px){
+                        .font(36px, 8px);
+                    }
+                    @media screen and (max-width: 300px){
+                        .font(30px, 8px);
+                    }
+                    //font-size: 60px;
+                    //line-height: 66px;
+                    //text-transform: uppercase;
+                    //font-weight: 300;
+                    //color: white;
+                    //.letter-spacing-large();
+                }
+            }
+        }
+    }
+}

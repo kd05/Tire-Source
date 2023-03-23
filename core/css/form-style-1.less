@@ -1,0 +1,573 @@
+
+
+// put directly inside of form selector, with 1 class added for correct priority
+// do it after form.form-style-1 styles
+.form-btn-width-lg(){
+    .form-items{
+        .item-wrap.item-submit{
+            width: 100%;
+            .item-inner{
+                width: 100%;
+                a, button{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+label{
+    .is-req{
+        color: @red;
+    }
+}
+
+.form-width-sm(){
+    width: 100%;
+    max-width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+    .form-items, .form-header{
+        width: 100%;
+        max-width: 100%;;
+    }
+}
+
+// for forms on white backgrounds..
+// put this inside of selector like form.form-class-name, and include after form.form-style-1 styles
+.form-on-white-bg(){
+    .form-header{
+        h2{
+            color: @textBlack;
+        }
+        p{
+            color: @textBlack;
+        }
+    }
+    .form-items{
+        .response-text{
+            background: @offWhite;
+            border-left: 4px solid @textGrey;
+            padding: 16px 14px;
+            color: @textBlack;
+            *{
+                color: @textBlack;
+                a{
+                    color: @red;
+                }
+            }
+        }
+    }
+}
+
+.select-font(){
+    .font(14px, 4px);
+    text-transform: uppercase;
+    color: @textBlack;
+    font-weight: 700;
+    .letter-spacing-large();
+    .montserrat();
+    @media screen and (max-width: 768px){
+        .font(13px, 4px);
+    }
+    @media screen and (max-width: 430px){
+        .font(12px, 4px);
+    }
+}
+
+// inputs need 2px larger line height to be same overall height as select
+// also this is pretty much needed because they often appear beside each other
+.input-font( @tt: none ){
+    .font(14px, 6px);
+    text-transform: none;
+    color: @textBlack;
+    font-weight: 700;
+    .letter-spacing-large();
+    .montserrat();
+    @media screen and (max-width: 768px){
+        .font(13px, 6px);
+    }
+    @media screen and (max-width: 430px){
+        .font(12px, 6px);
+    }
+    .placeholder({
+        color: @textLightGrey;
+    });
+}
+
+// sometimes we have <p> inside of the form items but not normally
+form.form-style-1, form.form-style-basic{
+    .form-items{
+        > p{
+            margin-bottom: 15px;
+        }
+    }
+}
+
+// ************************************************
+//          Form Style 1 Form Item types
+// ************************************************
+
+form.form-style-1{
+    &.on-white-bg{
+        .form-on-white-bg();
+    }
+    &.btn-width-lg{
+        .form-btn-width-lg();
+    }
+    &.width-sm{
+        .form-width-sm();
+    }
+    .form-items{
+
+        // **** TOOLTIP ****
+        .item-wrap .item-inner{
+            position: relative;
+            // the styles for this might not work well in all cases but is meant
+            // for fitment/subs in vehicle selection
+            .form-tooltip{
+                width: 100%;
+                margin-top: -10px;
+                margin-bottom: 4px;
+                .flex-container(row, nowrap);
+                .align-items(center);
+                .justify-content(flex-end);
+                &.split{
+                    .justify-content(space-between);
+                }
+                p.left{
+                    padding-right: 5px;
+                }
+                p.right{
+                    padding-left: 5px;
+                }
+                p{
+                    color: white;
+                    font-size: 11px;
+                    font-weight: 600;
+                    .letter-spacing-small();
+                    a{
+                        color: inherit;
+                        &:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        // **** ITEM WRAP ****
+        .item-wrap{
+            // Split 1
+            &.split-1{
+                width: 100%;
+            }
+            // Split 2
+            &.split-2{
+                width: 50%;
+                // not sure if split 2 is even used
+                @media screen and (max-width: 700px){
+                    width: 100%;
+                }
+            }
+            // <select>
+            &.type-select{
+                select{
+                }
+            }
+            // textarea
+            &.type-textarea{
+                width: 100%;
+                .item-inner{
+                    width: 100%;
+                }
+                textarea{
+                    width: 100%;
+                    min-height: 184px;
+                }
+                &.size-lg{
+                    textarea{
+                        width: 100%;
+                        min-height: 550px;
+                    }
+                }
+            }
+            // <input type="radio|checkbox">
+            &.type-checkbox, &.type-radio{
+                .item-inner{
+                    .flex-left( center );
+                    input{
+                        margin-right: 8px;
+                    }
+                    label{
+                        .font(14px, 4px);
+                        .letter-spacing-small();
+                        color: @textGrey;
+                        font-weight: 600;
+                        a{
+                            color: @red;
+                        }
+                    }
+                }
+            }
+            &.item-reset-form{
+                width: 100%;
+                .flex-right(center);
+                .item-inner{
+                    a, button{
+                        .font-12-upper();
+                        color: white;
+                    }
+                }
+            }
+            // ie. <button type="submit">
+            &.item-submit{
+                text-align: center;
+                color: blue;
+                a, button{
+                    &.disabled{
+                        cursor: not-allowed;
+                        opacity: .65;
+                        position: relative;
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            z-index: 500;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: white;
+                            opacity: .25;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//        Form Style 1 (general form styles)
+// ************************************************
+
+form.form-style-1{
+    position: relative;
+    label{
+        cursor: pointer;
+    }
+    &.disabled{
+        &::before{
+            content: '';
+            cursor: not-allowed !important;
+            position: absolute;
+            z-index: 5000;
+            .prop-100-plus(width, 20px);
+            .prop-100-plus(height, 20px);
+            left: -10px;
+            top: -10px;
+            background: grey;
+            opacity: .3;
+            border-radius: 2px;
+        }
+    }
+    // inputs
+    input[type="text"], input[type="password"]{
+        .input-font();
+        border: none;
+        padding: 15px;
+        width: 100%;
+        .box-shadow-1();
+        &:not(:focus){
+            outline: none;
+        }
+    }
+    textarea{
+        .input-font();
+        border: none;
+        padding: 15px;
+        width: 100%;
+        .box-shadow-1();
+        text-transform: none;
+        &:not(:focus){
+            outline: none;
+        }
+    }
+    // form header
+    .form-header{
+        display: block;
+        margin-bottom: 30px;
+        > *{
+            margin-bottom: 15px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        h2{
+            .font(27px, 6px);
+            color: white;
+            text-transform: uppercase;
+            .letter-spacing-large();
+            text-align: center;
+            font-weight: 400;
+            @media screen and (max-width: 640px){
+                .font(25px, 6px);
+            }
+            @media screen and (max-width: 430px){
+                .font(23px, 6px);
+            }
+        }
+        p{
+            text-align: center;
+            .like-paragraph( white );
+        }
+    }
+    // form footer link
+    .form-footer-link{
+        .flex-container(row, nowrap);
+        .justify-content(flex-end);
+        margin-top: 15px;
+        a, button{
+            .font-13-upper();
+            font-weight: 700;
+            color: @red;
+        }
+    }
+    // form items
+    .form-items{
+        width: 375px;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        .flex-container(row, wrap);
+        .align-items(flex-start);
+        .justify-content(center);
+        .response-text{
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0 5px;
+            padding-top: 4px;
+            margin-bottom: 18px;
+
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 600;
+            .letter-spacing-small();
+            color: white;
+
+            p{
+                font-size: 14px;
+                line-height: 18px;
+                font-weight: 600;
+                .letter-spacing-small();
+                color: white;
+            }
+            &.empty{
+                display: none !important;
+            }
+        }
+        // Items General
+        .item-wrap{
+            width: 100%;
+            margin-bottom: 22px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            &.hidden{
+                display: none;
+            }
+            // Labels
+            .item-label{
+                display: block;
+                width: 100%;
+                label{
+                    display: block;
+                    width: 100%;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: @textLightGrey;
+                    padding-bottom: 7px;
+                }
+            }
+            .item-inner{
+
+            }
+        }
+    }
+    .reset-btn-wrap{
+        padding-top: 15px;
+        margin-bottom: -15px;
+        .flex-container(row, nowrap);
+        .justify-content(flex-end);
+        a, span, button{
+            color: white;
+            .font-12-upper();
+            cursor: pointer;
+        }
+    }
+}
+
+// ************************************************
+//                 Checkout Form
+// ************************************************
+// See: /checkout.less
+
+// ************************************************
+//                Forgot Password
+// ************************************************
+
+form.forgot-password{
+
+}
+
+// ************************************************
+//              Sign In / Sign Up
+// ************************************************
+
+.sign-in-wrapper{
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    .item-sign-in, .item-sign-up{
+        .switch{
+            .flex-container(row, nowrap);
+            .justify-content(flex-end);
+            margin-top: 15px;
+            a, button{
+                .font-13-upper();
+                font-weight: 700;
+                color: @red;
+            }
+        }
+    }
+}
+
+form.sign-in-ajax, form.sign-up-ajax{
+}
+
+// ************************************************
+//               Per Page Select
+// ************************************************
+
+form.per-page-ajax{
+    width: 100%;
+    max-width: 100%;
+    .form-items{
+        width: 100%;
+        max-width: 100%;
+        .flex-container(row, nowrap);
+        .justify-content(flex-end);
+        .item-wrap{
+            .item-inner{
+                &.select-2-wrapper{
+                    width: 292px;
+                    max-width: 100%;
+                    @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                        width: 230px;
+                    }
+                    select{
+                        color: @textLightGrey;
+                    }
+                    select, .select2-container .select2-selection__rendered{
+                        .font(13px, 4px);
+                        padding-top: 12px;
+                        padding-bottom: 12px;
+                    }
+                    select, .select2-container{
+                        cursor: pointer;
+                        width: 100%;
+                        .select2-selection__rendered{
+                            color: @textLightGrey !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//            Rims/Tires by Size
+// ************************************************
+
+form.tire-size-select, form.rims-by-size{
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    .form-header{
+
+    }
+    .form-items{
+        width: 100%;
+        max-width: 100%;
+        .item-submit{
+            // padding-top: 15px;
+        }
+    }
+}
+
+// ************************************************
+//      Vehicle Lookup Form (specific styles)
+// ************************************************
+
+// use css class not ID for lower priority
+form.vehicle-lookup{
+    width: 100%;
+    max-width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+    // un-split 2 of the fields..
+    &.type-no-fitment:not(.in-top-image), &.hide-shop-for:not(.in-top-image){
+        .form-items{
+            .item-wrap{
+                // undo some items that have width 50%
+                &.item-wrap{
+                    width: 100%;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .form-items{
+        width: 100%;
+        .item-wrap{
+            margin-bottom: 18px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .item-inner{
+                .form-tooltip{
+                    margin-top: -7px;
+                    margin-bottom: 3px;
+                }
+            }
+            &.item-years, &.item-trims{
+                padding-left: 9px;
+                width: 50%;
+                @media screen and (max-width: 600px){
+                    padding-left: 8px;
+                }
+                @media screen and (max-width: 500px){
+                    padding-left: 0;
+                    width: 100%;
+                }
+            }
+            &.item-makes, &.item-models{
+                padding-right: 9px;
+                width: 50%;
+                @media screen and (max-width: 600px){
+                    padding-right: 8px;
+                }
+                @media screen and (max-width: 500px){
+                    padding-right: 0;
+                    width: 100%;
+                }
+            }
+            .item-inner{
+
+            }
+        }
+    }
+}

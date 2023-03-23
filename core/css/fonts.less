@@ -1,0 +1,186 @@
+
+
+//.like-header-size( @font-size, @line-height ){
+//    .like-header();
+//    font-size: @font-size;
+//    line-height: @line-height;
+//}
+
+.like-header(){
+    font-weight: 300;
+    text-transform: uppercase;
+    color: @textBlack;
+    .letter-spacing-medium();
+}
+
+.like-header-reg(){
+    font-weight: 400;
+    text-transform: uppercase;
+    color: @textBlack;
+    .letter-spacing-medium();
+}
+
+.like-h1-xxl(){
+    .like-header();
+    .font(60px, 13px);
+    @media screen and (max-width: 1650px){
+        .font(52px, 10px );
+    }
+    @media screen and (max-width: 1360px){
+        .font( 42px, 10px );
+    }
+    @media screen and (max-width: 1100px){
+        .font( 38px, 10px );
+    }
+    @media screen and (max-width: 500px){
+        .font( 35px, 10px );
+    }
+    @media screen and (max-width: 430px){
+        .font( 30px, 10px );
+    }
+}
+
+.like-h1-xl(){
+    .like-header();
+    .font(52px, 10px);
+    @media screen and (max-width: 1650px){
+        .font(46px, 10px);
+    }
+    @media screen and (max-width: 1100px){
+        .font( 34px, 10px );
+    }
+    @media screen and (max-width: 430px){
+        .font( 30px, 10px );
+    }
+}
+
+.like-h1-lg(){
+    .like-header();
+    .font(40px, 10px);
+    @media screen and (max-width: 768px){
+        .font(34px, 10px);
+    }
+    @media screen and (max-width: 430px){
+        .font( 30px, 10px );
+    }
+}
+
+.like-h1(){
+    .like-header();
+    font-size: 33px;
+    line-height: 41px;
+    .font(33px, 9px);
+    @media screen and (max-width: 430px){
+        .font(28px, 10px);
+    }
+}
+
+.like-h1-30(){
+    .like-header();
+    font-size: 30px;
+    line-height: 40px;
+    .font(30px, 10px);
+    @media screen and (max-width: 430px){
+        .font(28px, 10px);
+    }
+}
+
+.like-h2(){
+    .like-header();
+    .font(28px, 10px);
+    @media screen and (max-width: 430px){
+        .font(26px, 10px);
+    }
+}
+
+.like-h3(){
+    .like-header();
+    .font(24px, 10px);
+    @media screen and (max-width: 430px){
+        .font(22px, 10px);
+    }
+}
+
+.like-sub-title(){
+    color: @textGrey;
+    text-transform: uppercase;
+    font-weight: 700;
+    .font(22px, 4px);
+    @media screen and (max-width: 1366px){
+        .font(20px, 4px);
+    }
+    @media screen and (max-width: 1100px){
+        .font(18px, 4px);
+    }
+    @media screen and (max-width: 430px){
+        .font(17px, 4px);
+    }
+}
+
+.like-sub-title-sm(){
+    color: @textLightGrey;
+    font-weight: 700;
+    .letter-spacing-small();
+    .font(15px, 4px);
+    @media screen and (max-width: 1366px){
+        .font(14px, 4px);
+    }
+}
+
+.red(){
+    color: @red;
+}
+
+.like-h1-xxl, .general-content .like-h1-xxl{
+    .like-h1-xxl();
+}
+
+.like-h1-xl, .general-content .like-h1-xl{
+    .like-h1-xl();
+}
+
+.like-h1-lg, .general-content .like-h1-lg{
+    .like-h1-lg();
+}
+
+.like-h1{
+    .like-h1();
+}
+
+.like-h1-30{
+    .like-h1-30();
+}
+
+.like-h2{
+    .like-h2();
+}
+
+.like-h3{
+    .like-h3();
+}
+
+.like-sub-title{
+    .like-sub-title();
+}
+
+.like-sub-title-sm{
+    .like-sub-title-sm();
+}
+
+
+
+.red{
+    .red();
+}
+
+// these might not even be in use
+.semi-bold{
+    font-weight: 600;
+}
+.bold{
+    font-weight: 700;
+}
+
+
+
+

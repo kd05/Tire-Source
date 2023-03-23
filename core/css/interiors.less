@@ -1,0 +1,38 @@
+// ************************************************
+//         interior pages random stuff
+// ************************************************
+
+.policy-sub-nav{
+    margin-bottom: 41px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+    ul{
+        .flex-left(flex-start, wrap);
+        padding: 0;
+        margin: 0;
+        li{
+            margin: 0 10px 0 0;
+            &::before, &::after{
+                display: none !important;
+            }
+            a{
+                display: block;
+                width: auto;
+                padding: 5px 9px;
+                border: 2px solid @textBlack;
+                text-transform: uppercase;
+                .font(13px, 3px);
+                font-weight: 600;
+                color: @textBlack;
+                background: transparent;
+                .trans(all .3s);
+            }
+            &.current-item a, a:hover{
+                color: white;
+                background: @red;
+                border-color: @red;
+            }
+        }
+    }
+}

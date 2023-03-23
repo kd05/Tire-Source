@@ -1,0 +1,534 @@
+
+
+.sb-width-padding( @width: 350px, @padding-right: 34px ){
+    .sb-left{
+        padding-right: @padding-right;
+        width: @width;
+    }
+    .sb-right{
+        .calc(width; "100% - @{width}");
+    }
+}
+
+@prod_landing_1650: @header_breakpoint_full;
+@prod_landing_sidebar_stacks_980: 980px;
+
+// ************************************************
+//       Product Landing Vertical Spacing
+// ************************************************
+.product-landing-page{
+    .section{
+        margin-bottom: 130px;
+        &.section-rim-brands{
+            margin-bottom: 65px;
+            @media screen and (max-width: 768px){
+                margin-bottom: 50px;
+            }
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+        .title{
+            margin-bottom: 30px;
+        }
+        .main{
+
+        }
+        @media screen and (max-width: @prod_landing_1650){
+            margin-bottom: 110px;
+        }
+        @media screen and (max-width: 1360px){
+            margin-bottom: 85px;
+        }
+        @media screen and (max-width: 1100px){
+            margin-bottom: 70px;
+        }
+    }
+    // packages has no actual tabs just a title
+    &.packages-page{
+        .vehicle-tabs{
+            form{
+                .form-header{
+                    margin-bottom: 48px;
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//         Sidebar on Product Landing Page
+// ************************************************
+
+.product-landing-page{
+    //.top-image .y-mid .x-mid{
+    //    width: 85%;
+    //    @media screen and (max-width: 550px){
+    //        width: 100%;
+    //    }
+    //}
+    //.main-content .wide-container, .top-image .y-mid .x-mid{
+    //    @media screen and (max-width: 1750px){
+    //        padding-left: 40px;
+    //        padding-right: 40px;
+    //    }
+    //    @media screen and (max-width: 1440px){
+    //        padding-left: 28px;
+    //        padding-right: 28px;
+    //    }
+    //    @media screen and (max-width: 1100px){
+    //        padding-left: 18px;
+    //        padding-right: 18px;
+    //    }
+    //    @media screen and (max-width: @prod_landing_sidebar_stacks_980){
+    //        padding-left: 36px;
+    //        padding-right: 36px;
+    //    }
+    //    @media screen and (max-width: 500px){
+    //        padding-left: 30px;
+    //        padding-right: 30px;
+    //    }
+    //    @media screen and (max-width: 430px){
+    //        padding-left: 18px;
+    //        padding-right: 18px;
+    //    }
+    //}
+    .main-content{
+        .wide-container{
+
+        }
+    }
+    .sidebar-container{
+        .sb-left{
+
+        }
+        .sb-right{
+
+        }
+        @media screen and (max-width: 1650px){
+            .sb-width-padding( 410px, 30px );
+        }
+        @media screen and (max-width: 1440px){
+            .sb-width-padding( 395px, 30px );
+        }
+        @media screen and (max-width: 1360px){
+            .sb-width-padding( 380px, 30px );
+        }
+        @media screen and (max-width: 1100px){
+            .sb-width-padding( 350px, 30px );
+        }
+        @media screen and (max-width: @prod_landing_sidebar_stacks_980){
+            display: block;
+            .sb-left{
+                width: 100%;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-right: 0;
+                margin-bottom: 70px;
+            }
+            .sb-right{
+                width: 100%;
+                max-width: 720px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media screen and (min-width: 551px) and (max-width: 980px){
+            .sb-left{
+                max-width: 100%;
+                .vt-body{
+                    form{
+                        width: 100%;
+                        max-width: 800px;
+                        .form-items{
+                            .flex-between(center, wrap);
+                            .item-wrap{
+                                width: 48%;
+                                &.item-submit{
+                                    padding-top: 10px;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//                 General Tabs
+// ************************************************
+.tabs-wrapper{
+    .tab-trigger{
+        &.active{
+        }
+        &.not-active{
+        }
+    }
+    .tab-item{
+        &.active{
+            display: block;
+        }
+        &.not-active{
+            display: none;
+        }
+    }
+}
+
+
+// ************************************************
+//               Vehicle Tabs
+// ************************************************
+.vehicle-tabs{
+    .vt-controls{
+        .flex-container(row, wrap);
+        .align-items(stretch);
+        .justify-content(flex-start);
+        &.count-0{
+            display: none;
+        }
+        .vt-trigger{
+            width: 50%;
+            .font-15-upper-spaced();
+            min-height: 58px;
+            padding: 12px 25px;
+            text-align: center;
+            &.active{
+                background: @red;
+                color: white;
+            }
+            &.not-active{
+                background: @offWhite;
+                color: @textGrey;
+            }
+            @media screen and (max-width: 1366px){
+                .font(14px, 4px);
+                min-height: 55px;
+            }
+            @media screen and (max-width: 500px){
+                .font(13px, 4px);
+                min-height: 52px;
+            }
+            @media screen and (max-width: 430px){
+                .font(12px, 4px);
+                min-height: 48px;
+            }
+        }
+    }
+    .vt-body{
+        .vt-item{
+            padding: 45px 40px 40px 40px;
+            .vert-grad(@red, @darkRed, 100, 100 );
+            @media screen and (max-width: 1100px){
+                padding: 30px;
+            }
+            @media screen and (max-width: 430px){
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+            &.vt-item-tire-sizes{
+                @media screen and (min-width: 1101px){
+                    padding-top: 50px;
+                }
+            }
+            &.not-active{
+                display: none;
+            }
+            &.active{
+                display: block;
+            }
+            form{
+                width: 100%;
+                max-width: 310px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+// ************************************************
+//               Product Brands Flex
+// ************************************************
+.page-wrap{
+
+    // fix container padding
+    &.product-landing-page{
+        .wide-container{
+            @media screen and (min-width: 641px){
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            @media screen and (max-width: 430px){
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+        }
+    }
+
+    .product-brands{
+        .pb-flex{
+            width: 100%;
+            .flex-container(row, wrap);
+            .align-items(flex-start);
+            .justify-content(flex-start);
+            margin-left: -20px;
+            margin-right: -20px;
+            .calc(width; "100% + 40px");
+            .pb-item{
+                width: 16.666666666%;
+                padding-left: 20px;
+                padding-right: 20px;
+                margin-bottom: 50px;
+                @media screen and (max-width: 1500px){
+                    width: 20%;
+                }
+                @media screen and (max-width: 1200px){
+                    width: 25%;
+                }
+                @media screen and (max-width: 600px){
+                    width: 33.3333333%;
+                }
+                @media screen and (max-width: 430px){
+                    width: 50%;
+                }
+                @media screen and (max-width: 360px){
+                    width: 100%;
+                }
+                .pb-item-2{
+                    position: relative;
+                    width: 100%;
+                    text-align: center;
+                    a{
+                        display: block;
+                        .img-tag-contain{
+                            position: relative;
+                            width: 100%;
+                            max-width: 137px;
+                            margin-left: auto;
+                            margin-right: auto;
+                            height: 75px;
+                            margin-bottom: 20px;
+                            @media screen and (max-width: 1500px){
+                                max-width: 118px;
+                            }
+                            @media screen and (max-width: 1200px){
+                                max-width: 110px;
+                                margin-bottom: 16px;
+                            }
+                            @media screen and (max-width: 600px){
+                                margin-bottom: 12px;
+                            }
+                        }
+                        > span:nth-child(2){
+                            display: block;
+                            .font-15-upper-spaced();
+                            color: @textGrey;
+                            @media screen and (max-width: 1200px){
+                                .font(14px, 4px);
+                            }
+                            @media screen and (max-width: 600px){
+                                .font(13px, 4px);
+                            }
+                        }
+                    }
+                    .img-wrap{
+                        position: relative;
+                        z-index: 10;
+                        width: 100%;
+                        margin-bottom: 22px;
+                        // this was in designs but i think it just looks so much nicer with some colour instead
+                        // filter: grayscale( 100% );
+                        .trans(all .1);
+                        @media screen and (max-width: 1200px){
+                            margin-bottom: 16px;
+                        }
+                        @media screen and (max-width: 600px){
+                            margin-bottom: 12px;
+                        }
+                        .background-image{
+                            position: relative;
+                            width: 100%;
+                            max-width: 140px;
+                            margin-left: auto;
+                            margin-right: auto;
+                            height: 76px;
+                            @media screen and (max-width: 1500px){
+                                max-width: 118px;
+                            }
+                            @media screen and (max-width: 1200px){
+                                max-width: 110px;
+                            }
+                        }
+                        //img{
+                        //    display: block;
+                        //    width: 100%;
+                        //    max-width: 125px;
+                        //    height: auto;
+                        //    margin-left: auto;
+                        //    margin-right: auto;
+                        //}
+                        //.background-image{
+                        //    height: 80px;
+                        //    width: 100%;
+                        //    max-width: 125px;
+                        //    margin-left: auto;
+                        //    margin-right: auto;
+                        //}
+                    }
+                    p{
+                        position: relative;
+                        z-index: 10;
+                        .font-15-upper-spaced();
+                        color: @textGrey;
+                        @media screen and (max-width: 1200px){
+                            .font(14px, 4px);
+                        }
+                        @media screen and (max-width: 600px){
+                            .font(13px, 4px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//               Tire Types Flex
+// ************************************************
+.page-wrap{
+    .tire-types{
+        overflow: hidden;
+        width: 100%;
+        .tt-flex{
+            .flex-container(row, wrap);
+            .justify-content(flex-start);
+            .align-items(flex-start);
+            .calc(width; "100% + 16px");
+            margin-left: -8px;
+            margin-right: -8px;
+            margin-bottom: -16px;
+            @media screen and (max-width: 1440px){
+                margin-left: -6px;
+                margin-right: -6px;
+                margin-bottom: -12px;
+                .calc(width; "100% + 12px");
+            }
+            @media screen and (max-width: 1100px){
+                margin-left: 0;
+                margin-right: 0;
+                margin-bottom: -12px;
+                width: 100%;
+            }
+            .tt-item{
+                width: 50%;
+                padding-left: 8px;
+                padding-right: 8px;
+                margin-bottom: 16px;
+                @media screen and (max-width: 1440px){
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    margin-bottom: 12px;
+                }
+                @media screen and (max-width: 1100px){
+                    width: 100%;
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin-bottom: 12px;
+                }
+                .tt-item-inner{ // this is anchor tag
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    height: 260px;
+                    @media screen and (max-width: 1550px){
+                        height: 240px;
+                    }
+                    @media screen and (max-width: 1440px){
+                        height: 210px;
+                    }
+                    @media screen and (max-width: 1360px){
+                        height: 190px;
+                    }
+                    @media screen and (max-width: 1100px){
+                        height: 230px;
+                    }
+                    @media screen and (max-width: @prod_landing_sidebar_stacks_980){
+                        height: 210px;
+                    }
+                    @media screen and (max-width: 450px){
+                        height: 190px;
+                    }
+                    @media screen and (max-width: 400px){
+                        height: 175px;
+                    }
+                    .background-image{
+                        z-index: 5;
+                    }
+                    &::before{
+                        position: relative;
+                        z-index: 10;
+                        content: '';
+                        .posa();
+                        display: block;
+                        .vert-grad(black, black, 0, 100);
+                        opacity: .67;
+                        .trans(all .3s);
+                    }
+                    .content{
+                        position: absolute;
+                        width: 100%;
+                        bottom: 0;
+                        left: 0;
+                        padding-left: 35px;
+                        padding-bottom: 28px;
+                        @media screen and (max-width: 1440px){
+                            padding-left: 25px;
+                            padding-bottom: 20px;
+                        }
+                        @media screen and (max-width: 1360px){
+                            padding-left: 21px;
+                            padding-bottom: 17px;
+                        }
+                        .text{
+                            position: relative;
+                            z-index: 20;
+                            color: white;
+                            .font-15-upper-spaced();
+                            .fa{
+                                display: inline-block;
+                                color: @red;
+                                padding-left: 16px;
+                                .trans(all .3s);
+                            }
+                            @media screen and (max-width: 1550px){
+                                .font(14px, 4px);
+                            }
+                            @media screen and (max-width: 1440px){
+                                .font(13px, 4px);
+                            }
+                        }
+                    }
+                    &:hover{
+                        &::before{
+                            opacity: .78;
+                        }
+                        .content{
+                            .text{
+                                .fa{
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

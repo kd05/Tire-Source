@@ -1,0 +1,794 @@
+
+// ************************************************
+//   Product Titles (single/archive tire/rim pages)
+// ************************************************
+
+// change color for rims only because finish is otherwise the same color
+.product-loop-rims{
+    .product-titles{
+        .starting-from{
+            color: @textBlack;
+        }
+    }
+}
+
+// colors, letter spacing, etc.
+.product-titles{
+    .starting-from{
+        text-transform: uppercase;
+        font-weight: 700;
+        color: @textLightGrey;
+        .letter-spacing-small();
+        .sf-price{
+            font-weight: 700;
+            color: @red;
+        }
+    }
+    .brand{
+        text-transform: uppercase;
+        font-weight: 400;
+        color: @textBlack;
+        .letter-spacing-medium();
+    }
+    .model{
+        .letter-spacing-medium();
+        text-transform: uppercase;
+        font-weight: 700;
+        color: @textBlack;
+    }
+    // ie package popup
+    .suggested{
+        color: @red;
+        text-transform: uppercase;
+        font-weight: 700;
+        .letter-spacing-small();
+        //font-size: 18px;
+        //line-height: 22px;
+    }
+    // for rims
+    .finish{
+        .letter-spacing-medium();
+        text-transform: uppercase;
+        font-weight: 700;
+        color: @textLightGrey;
+    }
+    // for tires
+    .type{
+        .letter-spacing-medium();
+        text-transform: uppercase;
+        font-weight: 700;
+        color: @textLightGrey;
+    }
+    .sku{
+        font-weight: 700;
+        text-transform: uppercase;
+        .letter-spacing-large();
+        color: @textGrey;
+    }
+    > *{
+        margin-bottom: 8px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
+// in lightbox on packages page
+.package-popup .product-titles{
+    .brand{
+        .font(33px, 4px);
+        margin-bottom: 10px;
+        font-weight: 300;
+        @media screen and (max-width: 1440px){
+            .font(30px, 4px);
+        }
+        @media screen and (max-width: 1200px){
+            .font(28px, 4px);
+        }
+    }
+    .model{
+        .font(20px, 4px);
+        margin-bottom: 0;
+        @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+            .font(18px, 4px);
+        }
+        @media screen and (max-width: 1200px){
+            .font(16px, 4px);
+        }
+    }
+    // these gets positioned on top
+    .suggested{
+        .font(18px, 4px);
+        @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+            .font(16px, 4px);
+        }
+        @media screen and (max-width: 1200px){
+            .font(14px, 4px);
+        }
+    }
+}
+
+// archive page font sizes, a bit smaller
+.products-archive-page .product-titles{
+    .brand{
+        .font(28px, 4px);
+    }
+    .model{
+        .font(18px, 4px);
+    }
+    .finish{
+        padding-top: 2px;
+        .font(14px, 4px);
+    }
+    .starting-from{
+        padding-top: 2px;
+        .font(13px, 4px);
+    }
+    > *{
+        margin-bottom: 8px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+        .brand{
+            .font(24px, 4px);
+        }
+        .model{
+            .font(16px, 4px);
+        }
+        .finish{
+            .font(12px, 4px);
+        }
+        .starting-from{
+            .font(12px, 4px);
+        }
+    }
+}
+
+// need this garbage twice
+.product-titles-spacing(){
+    .margin-bottom-except-last(12px);
+    @media screen and (max-width: 500px){
+        .margin-bottom-except-last(10px);
+    }
+}
+
+.archive-lower-desc{
+    margin-top: 50px;
+    @media screen and (max-width: 640px){
+        margin-top: 40px;
+    }
+}
+
+// single page font sizes, a bit larger
+.single-product-page .product-titles{
+    .multi-line{
+        > span{
+            display: block;
+            .product-titles-spacing();
+        }
+    }
+    > *{
+        .product-titles-spacing();
+    }
+    .brand{
+        .font(36px, 6px);
+        @media screen and (max-width: 1366px){
+            .font(32px, 6px);
+        }
+        @media screen and (max-width: 500px){
+            .font(28px, 6px);
+        }
+    }
+    .model{
+        .font(20px, 6px);
+        @media screen and (max-width: 1366px){
+            .font(18px, 6px);
+        }
+        @media screen and (max-width: 500px){
+            .font(14px, 6px);
+        }
+    }
+    .finish{
+        .font(14px, 6px);
+        @media screen and (max-width: 500px){
+            .font(13px, 6px);
+        }
+    }
+    .type{
+        .font(14px, 6px);
+        @media screen and (max-width: 500px){
+            .font(13px, 6px);
+        }
+    }
+    .sku{
+        .font(14px, 6px);
+        @media screen and (max-width: 500px){
+            .font(13px, 6px);
+        }
+    }
+    .product-titles-spacing();
+}
+
+// ************************************************
+//    Product Quick Links (single product page)
+// ************************************************
+.vehicle-titles{
+    .fitment{
+        // span inside a <p>, this might not be in use anymore
+        .product-quick-links{
+            margin-left: 10px;
+            font-size: 16px;
+            text-transform: none;
+            font-weight: 400;
+        }
+    }
+    p.product-quick-links{
+        .font(15, 4px);
+        font-weight: 600;
+    }
+}
+
+
+.product-quick-links{
+    color: @textBlack;
+    a{
+        .inherit();
+        color: @red;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+// ************************************************
+//                General Titles
+// ************************************************
+
+.general-titles(){
+    .general-content{
+        padding-top: 10px;
+        padding-bottom: 5px;
+        &:last-child{
+            padding-bottom: 0;
+        }
+        p{
+            font-weight: 400;
+        }
+    }
+    .main{
+        .like-h1();
+    }
+    .sub{
+        .like-sub-title();
+    }
+    .sub-sm{
+        .like-sub-title-sm();
+    }
+    > *{
+        margin-bottom: 10px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    .text-icon-html{
+        .icon{
+            margin-right: 20px;
+            svg{
+                height: 42px;
+            }
+        }
+        .text{
+
+        }
+    }
+}
+
+.general-titles{
+    position: relative;
+    .general-titles();
+}
+
+// ************************************************
+//               Vehicle Titles
+// ************************************************
+
+// normally shown at the top of a page (single/archive tire/rim/package pages)
+.vehicle-titles{
+    position: relative;
+    &.show-select{
+        padding-right: 290px;
+        @media screen and (max-width: 1100px){
+            padding-right: 0;
+            .fitment{
+                display: none;
+            }
+        }
+    }
+    .vehicle{
+        .like-h1-lg();
+    }
+    // <a>[Change Vehicle]</a> opens lightbox
+    .fitment-change-vehicle{
+        width: 100%;
+        .flex-between( flex-end, wrap );
+        .fitment{}
+        .change-vehicle{}
+        @media screen and (max-width: @prod_archive_1_col_768 ) {
+            display: block;
+            .fitment{
+                margin-bottom: 10px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .fitment{
+        .like-sub-title();
+        text-transform: none;
+    }
+    .vehicle-and-sub{
+        .flex-between(flex-start, no-wrap);
+        @media screen and (max-width: 1200px){
+            display: block;
+        }
+        .vehicle{
+            // use spaces instead now
+            .extra{
+                margin-left: 0;
+            }
+        }
+        .select-vehicle-size-wrapper{
+            margin-left: 30px;
+            width: 250px;
+            max-width: 100%;
+            .select-2-wrapper, &.select-2-wrapper{
+                width: 100%;
+                select, .select2-selection__rendered{
+                    .letter-spacing-small();
+                }
+            }
+            @media screen and (max-width: 1200px){
+                width: 250px;
+                margin: 18px 0 18px 0;
+            }
+        }
+    }
+    > *{
+        margin-bottom: 10px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    @media screen and (max-width: @prod_archive_1440 ) {
+        .vehicle{
+            .font(34px, 8px);
+        }
+        .fitment{
+            .font(16px, 4px);
+        }
+        .change-vehicle{
+            .font(13px, 4px);
+        }
+    }
+    @media screen and (max-width: 768px ) {
+        .vehicle{
+            .font(30px, 8px);
+        }
+    }
+    @media screen and (max-width: 500px ) {
+        .vehicle{
+
+        }
+        .fitment{
+            .font(15px, 4px);
+        }
+        .change-vehicle{
+            .font(12px, 4px);
+        }
+    }
+    @media screen and (max-width: 430px ) {
+        .vehicle{
+            .font(26px, 8px);
+        }
+        .fitment{
+            .font(13px, 4px);
+        }
+        .change-vehicle{
+        }
+    }
+}
+
+// ************************************************
+//        Stock Level Indicator (icon + text)
+// ************************************************
+
+.product-table{
+    .stock-level-indicator{
+        .sl-bg.sl-bg.sl-bg{
+            .sl-text{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.stock-level-indicator{
+    width: 100%;
+    &.s-level-none{
+        .sl-bg{
+            .sl-icon, .sl-text{
+                color: @red !important;
+            }
+        }
+    }
+    &.s-level-semi-none{
+        .sl-bg{
+            .sl-icon, .sl-text{
+                color: @orange !important;
+            }
+        }
+    }
+    &.s-level-low{
+        .sl-bg{
+            .sl-icon, .sl-text{
+                color: @yellow_orange !important;
+            }
+        }
+    }
+    &.s-level-in{
+        .sl-bg{
+            .sl-icon, .sl-text{
+                color: @green !important;
+            }
+        }
+    }
+    .sl-bg{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 12px;
+        line-height: 1.2em;
+        .letter-spacing-small();
+        &.s-level-none{
+            .sl-icon{
+                color: @red !important;
+            }
+        }
+        &.s-level-in{
+            .sl-icon{
+                color: @green !important;
+            }
+        }
+        &.s-level-low{
+            .sl-icon{
+                color: @yellow_orange !important;
+            }
+        }
+        .sl-icon{
+            margin-right: .25em;
+            color: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            i{
+                color: inherit;
+                font-size: inherit;
+                line-height: inherit;
+                letter-spacing: inherit;
+            }
+        }
+        .sl-text{
+            color: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            font-weight: 700;
+        }
+    }
+}
+
+// ************************************************
+//               Vehicle Title
+//    (not to be confused with Vehicle Titles)
+// ************************************************
+
+a, span, button{
+    &.type-simple{
+        .font-15-upper();
+        font-weight: 700;
+        color: @red;
+    }
+}
+
+.vehicle-title{
+    .change-vehicle, .change-size{
+        cursor: pointer;
+        vertical-align: baseline;
+        margin-left: 15px;
+        color: @red;
+        font-size: 15px;
+        line-height: inherit;
+        text-transform: uppercase;
+        .letter-spacing-medium();
+        font-weight: 700;
+    }
+    .vehicle-title-inner{
+        .text{
+
+        }
+        select{
+            float: right;
+            .select(240px);
+        }
+    }
+}
+
+// ************************************************
+//               Vehicle Sub-Nav
+// ************************************************
+
+.vehicle-sub-nav{
+    margin-top: 20px;
+    // sometimes this is present (or maybe always)
+    .sub-nav-change-vehicle{
+        .flex-container(row, nowrap);
+        .justify-content(flex-end);
+        margin-top: -18px;
+        padding-bottom: 15px;
+        padding-right: 2px;
+    }
+    .sub-nav-flex{
+        .flex-between( stretch, wrap );
+        background: @textBlack;
+        .sub-nav-left{
+            .flex-left( stretch );
+            .item{
+                .flex-container(row, wrap); // child height 100%
+                .align-items(stretch);
+            }
+            @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+                display: block;
+                padding: 10px 0;
+            }
+        }
+        .sub-nav-right{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            .flex-container(row, wrap);
+            .align-items(stretch);
+            .justify-content(flex-end);
+            .change-size{
+                .flex-container(column);
+                .justify-content(center);
+                .align-items(flex-end);
+                padding: 0 30px;
+                @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                    padding: 0 20px;
+                }
+                @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+                    padding: 0 24px;
+                }
+                .select-vehicle-size-wrapper, .sub-size-select{
+                    select{
+                        padding-top: 12px;
+                        padding-bottom: 12px;
+                        font-size: 12px;
+                        line-height: 15px;
+                    }
+                    select, .select2-container .select2-selection__rendered{
+                        .font(12px, 3px);
+                        padding-right: 36px;
+                        @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                            width: 220px;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                        }
+                    }
+                    .select2-container{
+                        // a bit less padding here
+                        .select2-selection__rendered{
+
+                        }
+                    }
+                }
+            }
+        }
+        .item.current{
+            > a, > span, > button{
+                background: @red;
+                @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+                }
+            }
+        }
+        .item{
+            > a, > span, > button{
+                cursor: pointer;
+                background: @textBlack;
+                outline: none;
+                border: none;
+                margin: 0;
+                .trans(all .3s);
+                .flex-container(column);
+                .justify-content(center);
+                .align-items(center);
+                text-align: center;
+                min-width: 160px;
+                min-height: 65px;
+                padding: 12px 40px;
+                @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                    padding-left: 36px;
+                    padding-right: 36px;
+                    min-width: 150px;
+                    min-height: 56px;
+                }
+                @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+                    display: block;
+                    min-width: 0;
+                    min-height: 0;
+                    padding: 6px 11px;
+                    margin: 4px 17px;
+                    border-radius: 20px;
+                    text-align: left;
+                }
+                &:hover{
+                    background: @red;
+                    @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+                    }
+                }
+                > span{
+                    .font-15-upper-spaced();
+                    font-weight: 600;
+                    color: white;
+                    .flex-center( center );
+                    .fa{
+                        padding-right: 15px;
+                    }
+                    @media screen and (max-width: @prod_archive_header_breakpoint_1650){
+                        .font( 13px, 4px );
+                    }
+                    @media screen and (max-width: @prod_archive_cols_2_1300 ) {
+                        .flex-left( center );
+                        .fa{
+                            padding-right: 8px;
+                        }
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: @prod_archive_stack_all_550 ) {
+            .sub-nav-left{
+                width: 100%;
+                .flex-order(2);
+                .flex-center( center, wrap );
+                padding-bottom: 15px;
+                padding-top: 0;
+                padding-left: 10px;
+                padding-right: 10px;
+                .item{
+                    > a{
+                        margin-left: 12px;
+                        margin-right: 12px;
+                    }
+                }
+            }
+            .sub-nav-right{
+                width: 100%;
+                .flex-order(1);
+                .flex-center();
+                .change-size{
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+// ************************************************
+//               Product Logo
+// ************************************************
+
+.product-logo{
+    .background-image.contain{
+        height: 80px;
+        width: 100%;
+        max-width: 300px;
+        background-position: left bottom;
+        &.img-not-found{
+            display: none;
+        }
+    }
+    img{
+        width: 300px;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+// ************************************************
+//            General Icon + Text
+// ************************************************
+
+.text-icon-html{
+    .icon{
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        svg{
+            display: block;
+            height: 30px;
+            width: auto;
+            &.icon-car_type_car{
+                width: 43px;
+                height: auto;
+            }
+            &.icon-car_type_truck{
+                width: 43px;
+                height: auto;
+            }
+            &.icon-car_type_suv{
+                width: 43px;
+                height: auto;
+            }
+        }
+    }
+    .text{
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+// ************************************************
+//   Tire Type and Class Icons (ie. Winter, Passenger)
+// ************************************************
+
+// tires only
+.tire-type-class{
+    width: 100%;
+    .flex-container(row, wrap);
+    .justify-content(flex-start);
+    .align-items(center);
+    padding-top: 5px;
+    margin-bottom: 30px;
+    .icon{
+        margin-right: 10px;
+        display: block;
+        svg{
+            display: block;
+            height: 30px;
+            width: auto;
+            &.icon-car_type_car{
+                width: 43px;
+                height: auto;
+            }
+            &.icon-car_type_truck{
+                width: 43px;
+                height: auto;
+            }
+            &.icon-car_type_suv{
+                width: 43px;
+                height: auto;
+            }
+        }
+    }
+    .text-wrap{
+        padding-left: 10px;
+        p{
+            .font-14-upper();
+            color: @textLightGrey;
+            margin-bottom: 2px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        @media screen and (max-width: @header_breakpoint_full){
+            padding-left: 8px;
+            p{
+                .font(13px, 4px);
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+
+.sidebar-container{
+    .flex-container(row, nowrap);
+    position: relative;
+    // put padding on sidebar section so that if we make it display none
+    // the main content doesn't look retarded.
+    .sb-left{
+        width: 490px;
+        padding-right: 60px;
+        .sb-left-2{
+
+        }
+    }
+    .sb-right{
+        .calc(width; "100% - 490px");
+        .sb-right-2{
+        }
+    }
+
+    &.product-sidebar-container{
+        // styling for this might be done on products page due to specific breakpoints used there
+    }
+}
+
+// hide sidebar when there are no results and therefore no filters?
+// doesnt look much better
+// cannot do this for packages page, but could in theory do it for rims/tires
+//.products-page{
+//    &.rims-page, &.tires-page{
+//        .product-sidebar-container{
+//            &.results-empty{
+//                display: block;
+//                max-width: 1650px;
+//                .sb-left{
+//                    display: none !important;
+//                }
+//                .sb-right{
+//                    width: 100%;
+//                }
+//            }
+//        }
+//    }
+//}

@@ -1,0 +1,164 @@
+.img-tag-cover, .img-tag-contain{
+    position: relative;
+    // likely <a> or <span>
+    overflow: hidden;
+    > a{
+        cursor: pointer;
+    }
+    .img-wrap{
+        // display: none;
+        display: block;
+    }
+    &.loaded{
+        display: block;
+    }
+    img{
+        display: block;
+    }
+}
+
+.img-tag-contain, .img-tag-cover{
+    display: block;
+    position: relative;
+    img{
+        display: block;
+        position: absolute;
+    }
+    .overlay{
+        .posa();
+        z-index: 10;
+        background: black;
+        opacity: 0.6;
+        .trans(all .3s);
+    }
+    // optionally give this element an inline style for background using rgba
+    .hover-overlay{
+        display: block;
+        .posa();
+        z-index: 15;
+        opacity: 0;
+        background: rgba(0,0,0, 0.2);
+        .trans(all .3s);
+    }
+    // bottom right hover text
+    .see-more{
+        display: block;
+        position: absolute;
+        z-index: 20;
+        bottom: 0;
+        right: 0;
+        color: @red;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 600;
+        opacity: 0;
+        .trans(all .3s);
+    }
+    &:hover{
+        .see-more{
+            opacity: 1;
+        }
+        .hover-overlay{
+            opacity: 1;
+        }
+    }
+    @media screen and (max-width: 1024px){
+        .hover-overlay{
+            display: none;
+        }
+    }
+}
+
+.img-tag-contain{
+    opacity: 0;
+    .trans(all .1s);
+    // sometimes .hover-overlay goes outside parent, so don't hide overflow.
+    overflow: visible;
+    &.inherit-size{
+        .posa();
+        z-index: 5;
+    }
+    .hover-overlay{
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        width: auto;
+        height: auto;
+    }
+    &.loaded{
+        opacity: 1;
+    }
+    &.img-wide{
+        img{
+            top: 50%;
+            .translateY(-50%);
+            width: 100%;
+            height: auto;
+        }
+    }
+    &.img-tall{
+        img{
+            left: 50%;
+            .translateX(-50%);
+            height: 100%;
+            width: auto;
+        }
+    }
+}
+
+.img-tag-cover{
+    background-color: rgba(0,0,0,0.8);
+    overflow: hidden;
+    &.inherit-size{
+        .posa();
+        z-index: 5;
+    }
+    img{
+        opacity: 0;
+        .trans(opacity .1s);
+    }
+    &.loaded{
+        img{
+            opacity: 1;
+        }
+    }
+    &.img-wide{
+        img{
+            height: 100%;
+            width: auto;
+            left: 50%;
+            .translateX(-50%);
+        }
+    }
+    &.img-tall{
+        img{
+            width: 100%;
+            height: auto;
+            top: 50%;
+            .translateY(-50%);
+        }
+    }
+}
+
+
+.background-image{
+    background-color: @textGrey;
+    &.contain{
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: transparent;
+    }
+    &.standard{
+        .posa();
+        .bg-cover();
+    }
+    > .overlay{
+        display: block;
+        .posa();
+        z-index: 2;
+        background: black;
+        opacity: .6;
+    }
+}
