@@ -44,6 +44,12 @@ Class Admin_Sidebar{
         );
 
         $urls[] = array(
+            'title' => 'Coupons',
+//            'url' => get_admin_page_url( 'coupons' ),
+            'url' => get_admin_archive_link( 'coupons' ),
+        );
+
+        $urls[] = array(
             'title' => 'Transaction Report',
             'url' => get_admin_page_url( 'transaction_report' ),
         );

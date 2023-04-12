@@ -42,6 +42,7 @@ function get_nonce_secrets(){
         'logout_post_back' => 'logout-postback-1239786yasd8f67t8a7st6d',
         'tax_shipping_post' => 'taxShipping-asd8976gasd86gasd76gasd',
         'edit_single_users' => 'edit-users-for-admin-only',
+        'edit_single_coupons' => 'edit-coupons-for-admin-only',
     ];
 
     $ajax_actions = array_map( function( $route ) {

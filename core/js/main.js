@@ -1773,6 +1773,13 @@ $.fn.serializeObject = function () {
          */
         init_sign_in_form();
 
+
+        /**
+         *
+         */
+        init_add_coupon_form();
+
+
         /**
          *
          */

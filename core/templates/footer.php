@@ -93,8 +93,9 @@ echo ! $lb ? '' : html_element( $lb, 'div', 'hidden-lightbox-content', [ 'style'
 <?php cw_print_wp_blog_filter( 'cw_footer' ); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
-
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <?php
 if ( gp_get_global( 'require_fancybox', false ) ) {
     ?>

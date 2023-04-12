@@ -104,6 +104,9 @@ class Ajax {
             'rim_finish_image' => [
                 'nonce_secret' => 'zxcvo78h3kusdfkg66534s',
             ],
+            'insert_coupon' => [
+                'nonce_secret' => 'insert-coupon-bnobuycxwzgecvoyp',
+            ],
         );
 
         foreach ( $routes as $key => $val ) {

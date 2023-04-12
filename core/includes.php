@@ -39,6 +39,7 @@ require CORE_DIR . '/inc/package-query-functions.php';
 require CORE_DIR . '/inc/cache.php';
 require CORE_DIR . '/inc/spec-tables.php';
 require CORE_DIR . '/inc/product-images.php';
+require CORE_DIR . '/inc/coupons.php';
 
 // Admin stuff / whatever ...
 require CORE_DIR . '/classes/admin-sidebar.php';
@@ -93,6 +94,7 @@ require CORE_DIR . '/classes/icons.php';
 require CORE_DIR . '/classes/sidebar-container.php';
 require CORE_DIR . '/classes/user-exception.php';
 require CORE_DIR . '/classes/stock-level-html.php';
+require CORE_DIR . '/classes/coupon-exception.php';
 
 // import
 require CORE_DIR . '/classes/import/product-import.php';
@@ -135,6 +137,8 @@ require CORE_DIR . '/models/db-supplier.php';
 require CORE_DIR . '/models/db-user.php';
 require CORE_DIR . '/models/db-page.php';
 require CORE_DIR . '/models/db-page-meta.php';
+
+require CORE_DIR . '/models/db-coupon.php';
 
 require CORE_DIR . '/classes/pages.php';
 require CORE_DIR . '/classes/field-set.php';

@@ -56,6 +56,9 @@ Admin_Controller::register_page( 'product_sync', 'product-sync.php' );
 Admin_Controller::register_page( 'pricing', 'pricing.php' );
 Admin_Controller::register_page( 'google_shopping', 'google-shopping.php' );
 
+Admin_Controller::register_page( 'coupons', 'coupons.php' );
+Admin_Controller::register_page( 'insert_coupon', 'insert-coupon.php' );
+
 /**
  * register the test pages here.
  *
