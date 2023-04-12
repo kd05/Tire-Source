@@ -290,6 +290,7 @@ Class DB_Table {
 			DB_cache => 'DB_Cache',
 			DB_options => 'DB_Option',
 			DB_sub_sizes => 'DB_Sub_Size',
+            DB_coupons => 'DB_Coupon',
 		);
 
 		return $map;

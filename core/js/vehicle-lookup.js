@@ -611,6 +611,9 @@ Vehicle_Lookup.prototype.init = function () {
 
     // makes change, get years
     self.inputs.makes.on('change', function () {
+
+        console.log('change makes --->', self.inputs, self.inputs.makes.val());
+
         empty_form_response_text( self.form );
         var make = self.inputs.makes.val();
         self.get_years(make);
@@ -622,6 +625,9 @@ Vehicle_Lookup.prototype.init = function () {
 
     // years change, get models
     self.inputs.years.on('change', function () {
+
+        console.log('change years --->', self.inputs, self.inputs.years.val());
+
         empty_form_response_text( self.form );
         var make = self.inputs.makes.val();
         var year = self.inputs.years.val();
@@ -634,6 +640,9 @@ Vehicle_Lookup.prototype.init = function () {
 
     // models change, get trims
     self.inputs.models.on('change', function () {
+
+        console.log('change models --->', self.inputs, self.inputs.models.val());
+
         empty_form_response_text( self.form );
         var make = self.inputs.makes.val();
         var model = self.inputs.models.val();
@@ -646,6 +655,9 @@ Vehicle_Lookup.prototype.init = function () {
 
     // trims change, get fitments
     self.inputs.trims.on('change', function () {
+
+        console.log('change trims --->', self.inputs, self.inputs.trims.val());
+
         empty_form_response_text( self.form );
         var make = self.inputs.makes.val();
         var model = self.inputs.models.val();
@@ -682,6 +694,8 @@ Vehicle_Lookup.prototype.init = function () {
     // fitments change - get the URL and/or get Sub Sizes
     self.inputs.fitments.on('change', function () {
 
+        console.log('change fitments --->', self.inputs, self.inputs.fitments.val());
+
         var fitment = self.inputs.fitments.val();
 
         // reset sub sizes list regardless of fitment value
@@ -701,6 +715,9 @@ Vehicle_Lookup.prototype.init = function () {
 
     // Sub sizes change - get the URL - which may or may not have a sub size applied.
     self.inputs.subs.on('change', function () {
+
+        console.log('change self.inputs.subs --->', self.inputs, self.inputs.subs.val());
+
         // just tell the server to get the URL.
         // if a sub size is present, it will include it in the URL.
         // if a sub size is not present, it will make the URL using only the fitment size.

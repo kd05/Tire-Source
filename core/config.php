@@ -133,6 +133,8 @@ define( 'DB_pages', 'pages' );
 define( 'DB_page_meta', 'page_meta' );
 define( 'DB_stock_updates', 'stock_updates' );
 define( 'DB_rim_finishes', 'rim_finishes' );
+define( 'DB_coupons', 'coupons' );
+
 
 /**
  * $_SESSION indexes.

@@ -54,6 +54,7 @@ Class DatabasePDO implements iDatabase {
 	public $stock = DB_stock_updates;
 	public $sub_sizes = DB_sub_sizes;
 	public $rim_finishes = DB_rim_finishes;
+    public $coupons = DB_coupons;
 
 	// PDO param types
 	public $int;

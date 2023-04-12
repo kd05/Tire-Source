@@ -1206,3 +1206,98 @@ function get_form_tooltip( $msg, $msg_left = '' ) {
 	$op .= '</div>';
 	return $op;
 }
+
+
+
+
+
+/**
+ * @param array $args
+ */
+//function get_sign_up_form( $args = array() ) {
+function get_add_coupon_form( $args = array() ) {
+
+    $title = gp_if_set( $args, 'title', 'Add Coupon.' );
+
+    // form
+    $op = '';
+    $op .= '<form id="sign-up" class="add-coupon-ajax form-style-1 on-white-bg width-sm btn-width-lg" action="' . AJAX_URL . '">';
+    $op .= get_ajax_hidden_inputs( 'insert_coupon' );
+
+    // form header
+    if ( $title ) {
+        $op .= '<div class="form-header">';
+        $op .= '<h2>' . gp_test_input( $title ) . '</h2>';
+        $op .= '</div>'; // form-header
+    }
+
+    // form items
+    $op .= '<div class="form-items">';
+
+
+    // first
+    $op .= get_form_input( array(
+        'label' => 'Coupon Code*',
+        'name' => 'coupon_code',
+        'id' => 'ac-coupon-code',
+    ) );
+
+
+    $op .= '
+    <div class="item-wrap type-text item-coupon_discount">
+        <div class="item-label">
+            <label for="ac-coupon-discount">Coupon Discount (%)*</label>
+        </div>
+        <div class="item-inner">
+            <input type="number" min="0" max="100" name="coupon_discount" id="ac-coupon-discount" value="">
+        </div>
+    </div>
+       
+    
+    <div class="item-wrap type-text item-coupon_validity">
+        <div class="item-label">
+            <label for="ac-coupon-validity">Coupon Validity*</label>
+        </div>
+        <div class="item-inner">
+            <input class="date-picker-field" type="text" name="coupon_validity" id="ac-coupon-validity" value="">
+        </div>
+    </div>
+    
+    
+   <div class="item-wrap type-text item-max_time_usable">
+        <div class="item-label">
+            <label for="ac-max-time-usable">Max Used*</label>
+        </div>
+        <div class="item-inner">
+            <input type="number" min="0" name="max_time_usable" id="ac-max-time-usable" value="1">
+        </div>
+    </div>
+
+    <div class="item-wrap type-checkbox item-status">
+        <div class="item-label">
+            <label for="ac-max-time-usable">Status*</label>
+        </div>
+        <div class="item-inner">
+            <input type="radio" checked name="status" id="ac-make_admin" value="1">
+            <label for="ac-status">Active</label>
+            
+            <br/><br/>
+            <input type="radio" name="status" id="su-make_admin" value="0">
+            <label for="ac-status">InActive</label>
+        </div>
+    </div>
+    
+    ';
+
+
+    // Submit
+    $op .= get_form_submit( array(
+        'text' => 'Add Coupon',
+    ) );
+
+    $op .= '</div>'; // form-items
+
+    $op .= '</form>';
+
+    return $op;
+}
